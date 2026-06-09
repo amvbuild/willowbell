@@ -270,6 +270,7 @@
 </div>
 
 <script>
+  // Handles the "Other/Referral" dropdown logic
   function handleSourceChange() {
     const select = document.getElementById("sourceSelect");
     const dynamicBox = document.getElementById("dynamicSourceBox");
@@ -302,20 +303,30 @@
     submitBtn.disabled = true;
 
     try {
+      // Gather data from the form
       const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
-      payload.consent = formData.has('consent');
+      
+      // Structure it exactly how our new Google Sheet expects it
+      const payload = {
+        formType: "enquiry",
+        customerName: formData.get('name') || "Unknown", 
+        contactNumber: formData.get('whatsapp') || "Unknown",
+        emailAddress: formData.get('email') || "Unknown"
+      };
 
-      // The Google Apps Script URL
-      const response = await fetch('https://script.google.com/macros/s/AKfycbzQbG53H84JS22mXkZbihKddGwTn0RSZzjVQ_e-5oLGYu5M54i9ZpM-2qtWnIMYs7bDaQ/exec', {
+      // The NEW Google Apps Script URL we just generated
+      const webAppUrl = 'https://script.google.com/macros/s/AKfycbxQi2GOzVPnttWNpGoyxLsGlpL8UG80GFKCbJQp4s1mjSrf1CpU9Q25hCys5W1iENydRg/exec';
+
+      // Send to Google Sheets
+      const response = await fetch(webAppUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
         body: JSON.stringify(payload)
       });
       
       const result = await response.json();
       
-      if (result.status === "success") {
+      // If our Apps Script says 'success', trigger the UI animation
+      if (result.result === "success") {
         formScreen.style.display = "none";
         successScreen.style.display = "block";
         
@@ -330,12 +341,13 @@
         }, 4000);
 
       } else {
-        throw new Error(result.message);
+        throw new Error("Backend rejected submission");
       }
       
     } catch (error) {
+      console.error(error);
       statusMsg.style.color = '#E53E3E'; 
-      statusMsg.textContent = 'Error saving details. Please check connection.';
+      statusMsg.textContent = 'Error saving details. Please try again.';
       submitBtn.textContent = 'Submit Enquiry';
       submitBtn.disabled = false;
     }
