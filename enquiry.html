@@ -303,47 +303,59 @@
     submitBtn.disabled = true;
 
     try {
-      // Gather data from the form
       const formData = new FormData(form);
       
-      // Structure it exactly how our new Google Sheet expects it
-      const payload = {
+      // ==========================================
+      // ROUTE 1: Data for the OLD Sales Team Sheet
+      // ==========================================
+      const oldPayload = Object.fromEntries(formData.entries());
+      oldPayload.consent = formData.has('consent');
+      const oldUrl = 'https://script.google.com/macros/s/AKfycbzQbG53H84JS22mXkZbihKddGwTn0RSZzjVQ_e-5oLGYu5M54i9ZpM-2qtWnIMYs7bDaQ/exec';
+
+      const sendToOldSheet = fetch(oldUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+        body: JSON.stringify(oldPayload)
+      });
+
+      // ==========================================
+      // ROUTE 2: Data for the NEW Master ERP Sheet
+      // ==========================================
+      const newPayload = {
         formType: "enquiry",
         customerName: formData.get('name') || "Unknown", 
         contactNumber: formData.get('whatsapp') || "Unknown",
-        emailAddress: formData.get('email') || "Unknown"
+        emailAddress: formData.get('email') || "Unknown",
+        requirement: formData.get('requirement') || "",
+        timeline: formData.get('timeline') || "",
+        source: formData.get('source') || ""
       };
+      const newUrl = 'https://script.google.com/macros/s/AKfycbxQi2GOzVPnttWNpGoyxLsGlpL8UG80GFKCbJQp4s1mjSrf1CpU9Q25hCys5W1iENydRg/exec';
 
-      // The NEW Google Apps Script URL we just generated
-      const webAppUrl = 'https://script.google.com/macros/s/AKfycbxQi2GOzVPnttWNpGoyxLsGlpL8UG80GFKCbJQp4s1mjSrf1CpU9Q25hCys5W1iENydRg/exec';
-
-      // Send to Google Sheets
-      const response = await fetch(webAppUrl, {
+      const sendToNewSheet = fetch(newUrl, {
         method: 'POST',
-        body: JSON.stringify(payload)
+        body: JSON.stringify(newPayload)
       });
-      
-      const result = await response.json();
-      
-      // If our Apps Script says 'success', trigger the UI animation
-      if (result.result === "success") {
-        formScreen.style.display = "none";
-        successScreen.style.display = "block";
-        
-        setTimeout(() => {
-          form.reset();
-          document.getElementById('consent').checked = true;
-          document.getElementById("dynamicSourceBox").style.display = "none";
-          formScreen.style.display = "block";
-          successScreen.style.display = "none";
-          submitBtn.textContent = 'Submit Enquiry';
-          submitBtn.disabled = false;
-        }, 4000);
 
-      } else {
-        throw new Error("Backend rejected submission");
-      }
+      // ==========================================
+      // FIRE BOTH SIMULTANEOUSLY!
+      // ==========================================
+      await Promise.all([sendToOldSheet, sendToNewSheet]);
       
+      // Trigger the UI animation
+      formScreen.style.display = "none";
+      successScreen.style.display = "block";
+      
+      setTimeout(() => {
+        form.reset();
+        document.getElementById('consent').checked = true;
+        document.getElementById("dynamicSourceBox").style.display = "none";
+        formScreen.style.display = "block";
+        successScreen.style.display = "none";
+        submitBtn.textContent = 'Submit Enquiry';
+        submitBtn.disabled = false;
+      }, 4000);
+
     } catch (error) {
       console.error(error);
       statusMsg.style.color = '#E53E3E'; 
