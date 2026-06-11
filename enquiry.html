@@ -305,43 +305,18 @@
     try {
       const formData = new FormData(form);
       
-      // ==========================================
-      // ROUTE 1: Data for the OLD Sales Team Sheet
-      // ==========================================
-      const oldPayload = Object.fromEntries(formData.entries());
-      oldPayload.consent = formData.has('consent');
-      const oldUrl = 'https://script.google.com/macros/s/AKfycbzQbG53H84JS22mXkZbihKddGwTn0RSZzjVQ_e-5oLGYu5M54i9ZpM-2qtWnIMYs7bDaQ/exec';
+      // Map the form data into the exact format expected by the Apps Script
+      const payload = Object.fromEntries(formData.entries());
+      payload.consent = formData.has('consent');
 
-      const sendToOldSheet = fetch(oldUrl, {
+      // Unified Master CRM Web App URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwf-i_yDOzMMH0MqL9NkMLX7zp4vEzgRI44Fp9CCaT9UbJ1VZ02OZSVDpepU6QkZ4EReA/exec';
+
+      await fetch(scriptURL, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
-        body: JSON.stringify(oldPayload)
+        body: JSON.stringify(payload)
       });
-
-      // ==========================================
-      // ROUTE 2: Data for the NEW Master ERP Sheet
-      // ==========================================
-      const newPayload = {
-        formType: "enquiry",
-        customerName: formData.get('name') || "Unknown", 
-        contactNumber: formData.get('whatsapp') || "Unknown",
-        emailAddress: formData.get('email') || "Unknown",
-        requirement: formData.get('requirement') || "",
-        timeline: formData.get('timeline') || "",
-        source: formData.get('source') || "",
-        sourceDetails: formData.get('sourceDetails') || ""
-      };
-      const newUrl = 'https://script.google.com/macros/s/AKfycbxQi2GOzVPnttWNpGoyxLsGlpL8UG80GFKCbJQp4s1mjSrf1CpU9Q25hCys5W1iENydRg/exec';
-
-      const sendToNewSheet = fetch(newUrl, {
-        method: 'POST',
-        body: JSON.stringify(newPayload)
-      });
-
-      // ==========================================
-      // FIRE BOTH SIMULTANEOUSLY!
-      // ==========================================
-      await Promise.all([sendToOldSheet, sendToNewSheet]);
       
       // Trigger the UI animation
       formScreen.style.display = "none";
