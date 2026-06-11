@@ -276,13 +276,9 @@
     const dynamicBox = document.getElementById("dynamicSourceBox");
     const dynamicInput = document.getElementById("sourceDetails");
     
-    if (select.value === "Referral") {
+    if (select.value === "Referral" || select.value === "Other") {
       dynamicBox.style.display = "block";
-      dynamicInput.placeholder = "Enter Referral Name / Details";
-      dynamicInput.required = true;
-    } else if (select.value === "Other") {
-      dynamicBox.style.display = "block";
-      dynamicInput.placeholder = "Please specify...";
+      dynamicInput.placeholder = select.value === "Referral" ? "Enter Referral Name / Details" : "Please specify...";
       dynamicInput.required = true;
     } else {
       dynamicBox.style.display = "none";
@@ -304,34 +300,29 @@
 
     try {
       const formData = new FormData(form);
-      
-      // Convert data into URL parameters (Bypasses CORS & fits Google natively)
-      const dataParams = new URLSearchParams();
-      for (const pair of formData.entries()) {
-        dataParams.append(pair[0], pair[1]);
-      }
-      dataParams.set('consent', formData.has('consent') ? "Yes" : "No");
+      const payload = Object.fromEntries(formData.entries());
+      payload.consent = formData.has('consent') ? "Yes" : "No";
 
       // ==========================================
-      // ROUTE 1: Send to the OLD Sales Team Sheet
+      // ROUTE 1: OLD Sales Team Sheet
       // ==========================================
-      const oldUrl = 'https://script.google.com/macros/s/AKfycbzQbG53H84JS22mXkZbihKddGwTn0RSZzjVQ_e-5oLGYu5M54i9ZpM-2qtWnIMYs7bDaQ/exec';
+      const oldUrl = 'https://script.google.com/macros/s/AKfycbwf-i_yDOzMMH0MqL9NkMLX7zp4vEzgRI44Fp9CCaT9UbJ1VZ02OZSVDpepU6QkZ4EReA/exec';
       const sendToOldSheet = fetch(oldUrl, {
         method: 'POST',
-        mode: 'no-cors', // ADDED THIS BACK
-        body: dataParams
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+        body: JSON.stringify(payload)
       });
 
       // ==========================================
-      // ROUTE 2: Send to the NEW Master AppSheet CRM
+      // ROUTE 2: NEW Master AppSheet CRM
       // ==========================================
-      const newUrl = 'https://script.google.com/macros/s/AKfycbwf-i_yDOzMMH0MqL9NkMLX7zp4vEzgRI44Fp9CCaT9UbJ1VZ02OZSVDpepU6QkZ4EReA/exec';
+      const newUrl = 'https://script.google.com/macros/s/AKfycbxQi2GOzVPnttWNpGoyxLsGlpL8UG80GFKCbJQp4s1mjSrf1CpU9Q25hCys5W1iENydRg/exec';
       const sendToNewSheet = fetch(newUrl, {
         method: 'POST',
-        mode: 'no-cors', // ADDED THIS BACK
-        body: dataParams
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+        body: JSON.stringify(payload)
       });
-      
+
       // FIRE BOTH SIMULTANEOUSLY
       await Promise.all([sendToOldSheet, sendToNewSheet]);
       
