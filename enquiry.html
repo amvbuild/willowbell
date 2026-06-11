@@ -304,10 +304,13 @@
 
     try {
       const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
       
-      // Ensure consent passes cleanly to both sheets
-      payload.consent = formData.has('consent') ? "Yes" : "No";
+      // Convert data into URL parameters (Bypasses CORS & fits Google natively)
+      const dataParams = new URLSearchParams();
+      for (const pair of formData.entries()) {
+        dataParams.append(pair[0], pair[1]);
+      }
+      dataParams.set('consent', formData.has('consent') ? "Yes" : "No");
 
       // ==========================================
       // ROUTE 1: Send to the OLD Sales Team Sheet
@@ -315,8 +318,7 @@
       const oldUrl = 'https://script.google.com/macros/s/AKfycbzQbG53H84JS22mXkZbihKddGwTn0RSZzjVQ_e-5oLGYu5M54i9ZpM-2qtWnIMYs7bDaQ/exec';
       const sendToOldSheet = fetch(oldUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
-        body: JSON.stringify(payload)
+        body: dataParams
       });
 
       // ==========================================
@@ -325,8 +327,7 @@
       const newUrl = 'https://script.google.com/macros/s/AKfycbwf-i_yDOzMMH0MqL9NkMLX7zp4vEzgRI44Fp9CCaT9UbJ1VZ02OZSVDpepU6QkZ4EReA/exec';
       const sendToNewSheet = fetch(newUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
-        body: JSON.stringify(payload)
+        body: dataParams
       });
 
       // FIRE BOTH SIMULTANEOUSLY
