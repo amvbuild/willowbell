@@ -318,6 +318,7 @@
       const oldUrl = 'https://script.google.com/macros/s/AKfycbzQbG53H84JS22mXkZbihKddGwTn0RSZzjVQ_e-5oLGYu5M54i9ZpM-2qtWnIMYs7bDaQ/exec';
       const sendToOldSheet = fetch(oldUrl, {
         method: 'POST',
+        mode: 'no-cors', // ADDED THIS BACK
         body: dataParams
       });
 
@@ -327,9 +328,10 @@
       const newUrl = 'https://script.google.com/macros/s/AKfycbwf-i_yDOzMMH0MqL9NkMLX7zp4vEzgRI44Fp9CCaT9UbJ1VZ02OZSVDpepU6QkZ4EReA/exec';
       const sendToNewSheet = fetch(newUrl, {
         method: 'POST',
+        mode: 'no-cors', // ADDED THIS BACK
         body: dataParams
       });
-
+      
       // FIRE BOTH SIMULTANEOUSLY
       await Promise.all([sendToOldSheet, sendToNewSheet]);
       
