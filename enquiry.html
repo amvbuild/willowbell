@@ -270,7 +270,6 @@
 </div>
 
 <script>
-  // Handles the "Other/Referral" dropdown logic
   function handleSourceChange() {
     const select = document.getElementById("sourceSelect");
     const dynamicBox = document.getElementById("dynamicSourceBox");
@@ -323,10 +322,8 @@
         body: JSON.stringify(payload)
       });
 
-      // FIRE BOTH SIMULTANEOUSLY
       await Promise.all([sendToOldSheet, sendToNewSheet]);
       
-      // Trigger the UI animation immediately
       formScreen.style.display = "none";
       successScreen.style.display = "block";
       
