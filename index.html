@@ -570,8 +570,10 @@
         }
       }
 
-      // MAKE SURE THIS URL IS YOUR GOOGLE APPS SCRIPT WEB APP URL
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxvmgjZOyTVitZYtsgiTH1QOI3PD7prlr0a-Qv-PoYhQsRbMhdi2Y_zzI2zRW2K5UL45w/exec', {
+      // ---------------------------------------------------------
+      // NEW WEB APP URL BELOW
+      // ---------------------------------------------------------
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwkqKFIiVtpVUI_5BbHOFc5bdefL_gJ8LRYDQ4d0_O9Ol6cQy-jE-p3-VgqH4IGPZ8Q7A/exec', {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
         body: JSON.stringify(payload)
