@@ -165,7 +165,7 @@
   }
   .file-hint { font-size: 0.8rem; color: #718096; margin-top: 0.35rem; }
 
-  .address-block { background: #FFFFFF; border: 1px solid var(--border); padding: 1.2rem; border-radius: 8px; margin-top: 0.5rem; }
+  .address-block { background: #FFFFFF; border: 1px solid var(--border); padding: 1.2rem; border-radius: 8px; margin-top: 0.5rem; margin-bottom: 1.5rem; }
   .address-title { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; border-bottom: 1px dashed var(--border); padding-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
   
   .sync-checkbox { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer; color: #4A5568; font-weight: 600; margin-bottom: 0;}
@@ -281,6 +281,7 @@
         <input type="email" name="applicant_1_email" placeholder="email@example.com" required>
       </div>
 
+      <!-- APPLICANT 1 ID NUMBERS -->
       <div class="form-row">
         <div class="form-group">
           <label>PAN Number <span class="required">*</span></label>
@@ -292,6 +293,21 @@
         </div>
       </div>
 
+      <!-- APPLICANT 1 ID UPLOADS -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Upload PAN Card <span class="required">*</span></label>
+          <input type="file" name="applicant_1_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" required>
+          <div class="file-hint">Max 10 MB.</div>
+        </div>
+        <div class="form-group">
+          <label>Upload Aadhaar / Passport (NRI) <span class="required">*</span></label>
+          <input type="file" name="applicant_1_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" required>
+          <div class="file-hint">Max 10 MB.</div>
+        </div>
+      </div>
+
+      <!-- APPLICANT 1 ADDRESS -->
       <div class="address-block">
         <div class="address-title">Permanent Address (As per ID Proof)</div>
         <div class="form-group">
@@ -312,19 +328,7 @@
         </div>
       </div>
 
-      <div class="form-row" style="margin-top: 1.5rem;">
-        <div class="form-group">
-          <label>Upload Aadhaar / Passport (NRI) <span class="required">*</span></label>
-          <input type="file" name="applicant_1_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" required>
-          <div class="file-hint">Max 10 MB.</div>
-        </div>
-        <div class="form-group">
-          <label>Upload PAN Card <span class="required">*</span></label>
-          <input type="file" name="applicant_1_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" required>
-          <div class="file-hint">Max 10 MB.</div>
-        </div>
-      </div>
-
+      <!-- FINANCE SECTION -->
       <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
         <div class="form-group">
           <label>Reason for Purchase? <span class="required">*</span></label>
@@ -381,20 +385,36 @@
         </div>
         <div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="applicant_2_email"></div>
         
+        <!-- APPLICANT 2 ID NUMBERS -->
         <div class="form-row">
           <div class="form-group">
             <label>PAN Number <span class="required">*</span></label>
-            <input type="text" name="applicant_2_pan_number" maxlength="10" oninput="this.value = this.value.toUpperCase();">
+            <input type="text" name="applicant_2_pan_number" maxlength="10" placeholder="ABCDE1234F" oninput="this.value = this.value.toUpperCase();">
           </div>
           <div class="form-group">
             <label>Aadhaar Number <span class="required">*</span></label>
-            <input type="text" name="applicant_2_aadhaar_number" maxlength="12" pattern="\d{12}" oninput="this.value = this.value.replace(/\D/g, '');">
+            <input type="text" name="applicant_2_aadhaar_number" maxlength="12" pattern="\d{12}" placeholder="12 Digit Number" oninput="this.value = this.value.replace(/\D/g, '');">
           </div>
         </div>
 
+        <!-- APPLICANT 2 ID UPLOADS -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>Upload PAN Card <span class="required">*</span></label>
+            <input type="file" name="applicant_2_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)">
+            <div class="file-hint">Max 10 MB.</div>
+          </div>
+          <div class="form-group">
+            <label>Upload Aadhaar / Passport (NRI) <span class="required">*</span></label>
+            <input type="file" name="applicant_2_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)">
+            <div class="file-hint">Max 10 MB.</div>
+          </div>
+        </div>
+
+        <!-- APPLICANT 2 ADDRESS -->
         <div class="address-block">
           <div class="address-title">
-            Permanent Address
+            Permanent Address (As per ID Proof)
             <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_app2" onchange="syncAddress('app2', this.checked)"> Same as Applicant 1</label>
           </div>
           <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="applicant_2_address_line_1"></div>
@@ -407,11 +427,6 @@
             <div class="form-group"><label>PIN / Postal Code <span class="required">*</span></label><input type="text" name="applicant_2_pincode"></div>
             <div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="applicant_2_country" value="India"></div>
           </div>
-        </div>
-
-        <div class="form-row" style="margin-top: 1.5rem;">
-          <div class="form-group"><label>Upload Aadhaar/Passport <span class="required">*</span></label><input type="file" name="applicant_2_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)"></div>
-          <div class="form-group"><label>Upload PAN Card <span class="required">*</span></label><input type="file" name="applicant_2_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)"></div>
         </div>
       </div>
 
@@ -507,7 +522,7 @@
             <div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="gpa_country" value="India"></div>
           </div>
         </div>
-        <div class="form-group" style="margin-top: 1.5rem;">
+        <div class="form-group">
           <label>Upload Registered GPA Document <span class="required">*</span></label>
           <input type="file" name="gpa_document" accept=".pdf,image/*" onchange="checkFileSize(this)">
           <div class="file-hint">Max 10 MB.</div>
@@ -557,7 +572,7 @@
     const inputs = currentStep.querySelectorAll('input, select, textarea');
     for (let input of inputs) {
       if (!input.checkValidity()) {
-        input.reportValidity(); // Show native browser error bubble
+        input.reportValidity(); 
         return; 
       }
     }
@@ -599,23 +614,22 @@
     const block = document.getElementById(blockId);
     block.style.display = isRequired ? 'block' : 'none';
     
-    // Find all inputs in the block, make them required if they aren't line_2
     const inputs = block.querySelectorAll('input[type="text"], input[type="tel"], input[type="date"], input[type="email"], input[type="file"]');
     inputs.forEach(input => {
       if (isRequired) {
         if (!input.name.includes('line_2')) input.setAttribute('required', 'true');
       } else {
         input.removeAttribute('required');
-        input.value = ''; // Clear fields if they hide the section
+        input.value = ''; 
       }
     });
   }
 
   function checkFileSize(input) {
     if (input.files && input.files[0]) {
-      if (input.files[0].size > 10 * 1024 * 1024) { // 10MB
+      if (input.files[0].size > 10 * 1024 * 1024) { 
         alert("File size exceeds 10 MB. Please choose a smaller file.");
-        input.value = ""; // Clear the file
+        input.value = ""; 
       }
     }
   }
