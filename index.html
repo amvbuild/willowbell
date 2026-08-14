@@ -252,7 +252,7 @@
       
       <div class="form-group">
         <label>Apartment Type <span class="required">*</span></label>
-        <div class="radio-group">
+        <div class="radio-group" id="apartmentTypeGroup">
           <label><input type="radio" name="apartmentType" value="2BHK" required> 2 BHK</label>
           <label><input type="radio" name="apartmentType" value="3BHK" required> 3 BHK</label>
           <label><input type="radio" name="apartmentType" value="4BHK" required> 4 BHK</label>
@@ -527,6 +527,56 @@
 
   addApplicant(true);
   addBtn.addEventListener('click', () => addApplicant(false));
+  
+  // ---------------------------------------------------------
+  // AUTO-FILL & LOCK URL PARAMETERS LOGIC
+  // ---------------------------------------------------------
+  document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    const unit = urlParams.get('unit');
+    const type = urlParams.get('type');
+    const floor = urlParams.get('floor');
+    const name = urlParams.get('name');
+    const phone = urlParams.get('phone');
+
+    // Helper to lock text fields and select dropdowns
+    function lockField(id, value) {
+      const field = document.getElementById(id);
+      if (field && value) {
+        field.value = value;
+        field.style.pointerEvents = "none";
+        field.style.backgroundColor = "#e9ecef";
+        field.readOnly = true; 
+      }
+    }
+
+    // Helper to lock radio buttons
+    function lockRadioGroup(nameAttr, value) {
+      if (!value) return;
+      const radios = document.getElementsByName(nameAttr);
+      if (radios.length > 0) {
+        radios.forEach(radio => {
+          if (radio.value === value) {
+            radio.checked = true;
+          }
+          radio.style.pointerEvents = "none"; // lock clicking
+        });
+      }
+    }
+
+    // Lock the apartment details securely
+    lockField('apartmentNumber', unit);
+    lockField('apartmentFloor', floor);
+    lockRadioGroup('apartmentType', type);
+
+    // Pre-fill editable applicant fields securely matching dynamic 'name' attributes
+    const nameField = document.querySelector('input[name="applicant_1_name"]');
+    if (nameField && name) nameField.value = name;
+
+    const phoneField = document.querySelector('input[name="applicant_1_mobile"]');
+    if (phoneField && phone) phoneField.value = phone;
+  });
 
   const fileToBase64 = (file) => new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -552,15 +602,11 @@
       const formData = new FormData(form);
       const payload = {};
 
-      // ---------------------------------------------------------
-      // THE URL HOOK: Extract Lead_ID if provided
-      // ---------------------------------------------------------
       const urlParams = new URLSearchParams(window.location.search);
       const leadId = urlParams.get('lead');
       
       payload['Lead_ID'] = leadId ? leadId : "PENDING-MATCH";
       payload['Booking_Date'] = new Date().toISOString().split('T')[0];
-      // ---------------------------------------------------------
 
       for (let [key, value] of formData.entries()) {
         if (value instanceof File && value.size > 0) {
@@ -570,9 +616,6 @@
         }
       }
 
-      // ---------------------------------------------------------
-      // NEW WEB APP URL BELOW
-      // ---------------------------------------------------------
       const response = await fetch('https://script.google.com/macros/s/AKfycbwkqKFIiVtpVUI_5BbHOFc5bdefL_gJ8LRYDQ4d0_O9Ol6cQy-jE-p3-VgqH4IGPZ8Q7A/exec', {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
