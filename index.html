@@ -131,8 +131,6 @@
     background-color: #FFFFFF;
   }
 
-  textarea { resize: vertical; min-height: 80px; }
-
   .radio-group { display: flex; gap: 1.5rem; align-items: center; padding: 0.5rem 0; }
   .radio-group label { font-weight: 500; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0; cursor: pointer; color: #4A5568;}
   .radio-group input[type="radio"] { width: auto; accent-color: var(--primary); width: 1.2rem; height: 1.2rem; cursor: pointer;}
@@ -227,6 +225,22 @@
     font-weight: 600; 
     font-size: 1rem;
     min-height: 20px;
+  }
+
+  .address-block {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+  .address-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 0.5rem;
   }
 </style>
 </head>
@@ -325,9 +339,36 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label>Present Address with PIN Code</label>
-        <textarea name="nominee_address" placeholder="Enter complete address..."></textarea>
+      <div class="address-block">
+        <div class="address-title">Present Address</div>
+        <div class="form-group">
+          <label>Address Line 1</label>
+          <input type="text" name="nominee_address_line_1" placeholder="Flat, House no., Building, Company, Apartment">
+        </div>
+        <div class="form-group">
+          <label>Address Line 2</label>
+          <input type="text" name="nominee_address_line_2" placeholder="Area, Street, Sector, Village">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>City / Town</label>
+            <input type="text" name="nominee_city">
+          </div>
+          <div class="form-group">
+            <label>State / Province</label>
+            <input type="text" name="nominee_state">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>PIN / Postal Code</label>
+            <input type="text" name="nominee_pincode">
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <input type="text" name="nominee_country" value="India">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -372,12 +413,39 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label>Present Address with PIN Code</label>
-        <textarea name="gpa_address" placeholder="Enter complete address..."></textarea>
+      <div class="address-block">
+        <div class="address-title">Present Address</div>
+        <div class="form-group">
+          <label>Address Line 1</label>
+          <input type="text" name="gpa_address_line_1" placeholder="Flat, House no., Building, Company, Apartment">
+        </div>
+        <div class="form-group">
+          <label>Address Line 2</label>
+          <input type="text" name="gpa_address_line_2" placeholder="Area, Street, Sector, Village">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>City / Town</label>
+            <input type="text" name="gpa_city">
+          </div>
+          <div class="form-group">
+            <label>State / Province</label>
+            <input type="text" name="gpa_state">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>PIN / Postal Code</label>
+            <input type="text" name="gpa_pincode">
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <input type="text" name="gpa_country" value="India">
+          </div>
+        </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="margin-top: 1.5rem;">
         <label>Upload Registered GPA Document</label>
         <input type="file" name="gpa_document" accept=".pdf,image/*">
         <div class="file-hint">Provide scanned copy/photo of the Power of Attorney. Max 10 MB.</div>
@@ -491,7 +559,39 @@
         <input type="email" name="applicant_${applicantCount}_email" placeholder="email@example.com" ${requiredAttr}>
       </div>
 
-      <div class="form-row">
+      <div class="address-block">
+        <div class="address-title">Present Address</div>
+        <div class="form-group">
+          <label>Address Line 1 ${reqStar}</label>
+          <input type="text" name="applicant_${applicantCount}_address_line_1" placeholder="Flat, House no., Building, Company, Apartment" ${requiredAttr}>
+        </div>
+        <div class="form-group">
+          <label>Address Line 2</label>
+          <input type="text" name="applicant_${applicantCount}_address_line_2" placeholder="Area, Street, Sector, Village">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>City / Town ${reqStar}</label>
+            <input type="text" name="applicant_${applicantCount}_city" ${requiredAttr}>
+          </div>
+          <div class="form-group">
+            <label>State / Province ${reqStar}</label>
+            <input type="text" name="applicant_${applicantCount}_state" ${requiredAttr}>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>PIN / Postal Code ${reqStar}</label>
+            <input type="text" name="applicant_${applicantCount}_pincode" ${requiredAttr}>
+          </div>
+          <div class="form-group">
+            <label>Country ${reqStar}</label>
+            <input type="text" name="applicant_${applicantCount}_country" value="India" ${requiredAttr}>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top: 1.5rem;">
         <div class="form-group">
           <label>Upload Aadhaar / Passport (NRI) ${reqStar}</label>
           <input type="file" name="applicant_${applicantCount}_id_proof" accept=".pdf,image/*" ${requiredAttr}>
@@ -502,11 +602,6 @@
           <input type="file" name="applicant_${applicantCount}_pan" accept=".pdf,image/*" ${requiredAttr}>
           <div class="file-hint">Max 10 MB.</div>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label>Present Address with PIN Code ${reqStar}</label>
-        <textarea name="applicant_${applicantCount}_address" placeholder="Enter complete address..." ${requiredAttr}></textarea>
       </div>
     `;
     
@@ -540,7 +635,6 @@
     const name = urlParams.get('name');
     const phone = urlParams.get('phone');
 
-    // Helper to lock text fields and select dropdowns
     function lockField(id, value) {
       const field = document.getElementById(id);
       if (field && value) {
@@ -551,7 +645,6 @@
       }
     }
 
-    // Helper to lock radio buttons
     function lockRadioGroup(nameAttr, value) {
       if (!value) return;
       const radios = document.getElementsByName(nameAttr);
@@ -560,17 +653,15 @@
           if (radio.value === value) {
             radio.checked = true;
           }
-          radio.style.pointerEvents = "none"; // lock clicking
+          radio.style.pointerEvents = "none";
         });
       }
     }
 
-    // Lock the apartment details securely
     lockField('apartmentNumber', unit);
     lockField('apartmentFloor', floor);
     lockRadioGroup('apartmentType', type);
 
-    // Pre-fill editable applicant fields securely matching dynamic 'name' attributes
     const nameField = document.querySelector('input[name="applicant_1_name"]');
     if (nameField && name) nameField.value = name;
 
@@ -602,7 +693,7 @@
       const formData = new FormData(form);
       const payload = {};
 
-      const urlParams = new URLSearchParams(window.location.search);
+      const urlParams = newSearchParams(window.location.search);
       const leadId = urlParams.get('lead');
       
       payload['Lead_ID'] = leadId ? leadId : "PENDING-MATCH";
