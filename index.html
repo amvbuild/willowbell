@@ -98,6 +98,12 @@
   <h2>Booking Application Form</h2>
   <p class="subtitle">Allotment form for Project - Classique Willowbell</p>
 
+  <!-- THE FAILSAFE ERROR SCREEN -->
+  <div id="failsafe-error" style="display: none; background: #FFF5F5; border: 2px solid #FEB2B2; padding: 3rem 2rem; border-radius: 8px; text-align: center; margin-bottom: 2rem;">
+    <h3 style="color: #C53030; margin-top: 0; font-size: 1.5rem;">⚠️ Invalid or Missing Link</h3>
+    <p style="color: #4A5568; font-size: 1.1rem; font-weight: 500; margin-bottom: 0;">This booking form requires a secure, personalized link.<br><br>Please contact your Sales Manager to receive your official allotment link.</p>
+  </div>
+
   <div class="step-indicator">
     <div class="step-dot active" id="dot-1">1</div>
     <div class="step-dot" id="dot-2">2</div>
@@ -383,18 +389,35 @@
 </div>
 
 <script>
-  // URL PARAMS
+  // ---------------------------------------------------------
+  // URL PARAMS & DIGITAL RECEIPT POPULATION (WITH FAILSAFE)
+  // ---------------------------------------------------------
   document.addEventListener("DOMContentLoaded", function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const unit = urlParams.get('unit'), type = urlParams.get('type'), floor = urlParams.get('floor');
+    
+    const unit = urlParams.get('unit');
+    const type = urlParams.get('type');
+    const floor = urlParams.get('floor');
+    const name = urlParams.get('name');
+    const phone = urlParams.get('phone');
+    const lead = urlParams.get('lead');
+
+    // THE FAILSAFE TRIGGER - Blocks access if the URL is naked
+    if (!unit && !lead) {
+      document.getElementById('bookingForm').style.display = 'none';
+      document.querySelector('.step-indicator').style.display = 'none';
+      document.getElementById('failsafe-error').style.display = 'block';
+      return; // Stop the rest of the script from running
+    }
+
     if(unit) { document.getElementById('display_unit').innerText = unit; document.getElementById('hidden_unit').value = unit; }
     if(type) { document.getElementById('display_type').innerText = type; document.getElementById('hidden_type').value = type; }
     if(floor) { document.getElementById('display_floor').innerText = floor; document.getElementById('hidden_floor').value = floor; }
     
     const nameField = document.querySelector('input[name="applicant_1_name"]');
-    if (nameField && urlParams.get('name')) nameField.value = urlParams.get('name');
+    if (nameField && name) nameField.value = name;
     const phoneField = document.querySelector('input[name="applicant_1_mobile"]');
-    if (phoneField && urlParams.get('phone')) phoneField.value = urlParams.get('phone');
+    if (phoneField && phone) phoneField.value = phone;
   });
 
   // AUTO-TITLE CASE
@@ -464,7 +487,7 @@
     // Un-require and disable inputs to prevent them from sending data or blocking validation
     block.querySelectorAll('input').forEach(inp => {
       inp.removeAttribute('required');
-      inp.setAttribute('disabled', 'true'); // Prevents hidden required fields from triggering validation
+      inp.setAttribute('disabled', 'true'); 
       if (inp.type !== 'checkbox' && inp.type !== 'radio') inp.value = '';
     });
     
@@ -545,6 +568,7 @@
         else if (!(value instanceof File)) { payload[key] = value; }
       }
 
+      // DO NOT CHANGE THIS URL
       const response = await fetch('https://script.google.com/macros/s/AKfycbwkqKFIiVtpVUI_5BbHOFc5bdefL_gJ8LRYDQ4d0_O9Ol6cQy-jE-p3-VgqH4IGPZ8Q7A/exec', {
         method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload)
       });
