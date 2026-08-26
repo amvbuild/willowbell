@@ -17,9 +17,9 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: '#DFB558', /* Secondary */
+                        brand: '#DFB558', 
                         brandHover: '#C89D42', 
-                        primary: '#204633', /* Primary */
+                        primary: '#204633', 
                         surface: '#F8FAFC'
                     },
                     fontFamily: {
@@ -31,24 +31,18 @@
         }
     </script>
     <style>
-        /* Smooth Scrolling for Nav Anchors */
         html { scroll-behavior: smooth; }
-        
-        /* High-Performance Staggered Animations */
         .hero-img-anim { animation: subtleZoom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; transform: scale(1.05); }
         @keyframes subtleZoom { to { transform: scale(1); } }
         
         .fade-in-up { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(25px); }
         .delay-100 { animation-delay: 150ms; }
         .delay-200 { animation-delay: 300ms; }
-        .delay-300 { animation-delay: 450ms; }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
         
-        /* Swipeable Gallery classes */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Blur for locked plans */
         .blur-gate { filter: blur(12px) grayscale(50%); pointer-events: none; transition: filter 0.5s ease; }
         .hidden-state { display: none !important; }
     </style>
@@ -67,8 +61,7 @@
             <!-- Left: Contact CTA -->
             <a href="tel:+919972710552" class="flex items-center font-display font-bold text-primary hover:text-brand transition text-sm md:text-base flex-shrink-0">
                 <svg class="w-5 h-5 mr-1 md:mr-2 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                <span class="hidden md:inline">+91 99727 10552</span>
-                <span class="md:hidden">Call Now</span>
+                <span>+91 99727 10552</span>
             </a>
 
             <!-- Center: Anchor Nav (Desktop Only) -->
@@ -77,6 +70,7 @@
                 <a href="#plans" class="hover:text-brand transition">Floor Plans</a>
                 <a href="#gallery" class="hover:text-brand transition">Gallery</a>
                 <a href="#location" class="hover:text-brand transition">Location</a>
+                <a href="#about" class="hover:text-brand transition">About Us</a>
             </nav>
             
             <!-- Right: AMV Build Logo -->
@@ -112,19 +106,18 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] flex items-center pt-16 overflow-hidden">
-        <!-- Background Image with Zoom Animation -->
+    <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
         <div class="absolute inset-0 z-0 overflow-hidden">
             <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_Balcony.webp" alt="Classique Willowbell Balcony" class="w-full h-full object-cover object-center hero-img-anim">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-10">
             
             <!-- Hero Copy -->
-            <div class="fade-in-up delay-100 text-center lg:text-left pt-10 lg:pt-0">
-                <!-- Classique Willowbell Prominent Logo -->
-                <img src="https://amvbuild.in/wp-content/uploads/2026/05/CW-Logo-2.png" alt="Classique Willowbell" class="h-16 md:h-20 lg:h-24 mb-6 mx-auto lg:mx-0 object-contain drop-shadow-xl">
+            <div class="fade-in-up delay-100 text-center lg:text-left">
+                <!-- Prominent Centered/Aligned Logo -->
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/CW-Logo-2.png" alt="Classique Willowbell" class="h-20 md:h-24 mb-6 mx-auto lg:mx-0 object-contain drop-shadow-xl">
                 
                 <span class="inline-block py-1.5 px-4 bg-brand text-white font-bold rounded-full text-xs md:text-sm mb-4 shadow-lg uppercase tracking-wider">Hennur Road, Bengaluru</span>
                 
@@ -143,7 +136,7 @@
             <!-- Lead Capture Form -->
             <div class="fade-in-up delay-200 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-brand max-w-md w-full mx-auto lg:ml-auto">
                 <div id="lead-capture-container">
-                    <h3 class="font-display font-bold text-2xl text-primary mb-1">Unlock Launch Price</h3>
+                    <h3 class="font-display font-bold text-2xl text-primary mb-1">Get in touch to lock the launch price</h3>
                     <p class="text-sm text-gray-600 mb-6">Register to download the cost sheet instantly.</p>
                     
                     <form id="willowbell-form" class="space-y-4">
@@ -155,10 +148,10 @@
                         </div>
                         
                         <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-green-900 text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-xl shadow-primary/30 mt-2">
-                            Download Information Now
+                            Get in touch to lock the launch price
                         </button>
                         
-                        <!-- RERA as a Trust Signal -->
+                        <!-- RERA Trust Signal -->
                         <div class="text-center mt-4 border-t border-gray-200 pt-3">
                             <p class="text-xs text-gray-500 font-semibold">RERA Registered Project</p>
                             <p class="text-[10px] text-gray-400 font-mono mt-1">PRM/KA/RERA/1251/446/PR/220526/008672</p>
@@ -183,51 +176,44 @@
         </div>
     </section>
 
-    <!-- Key Statistics Bar -->
+    <!-- Key Statistics Bar (Streamlined for Mobile) -->
     <section class="bg-primary py-6 relative z-20 shadow-lg border-b-4 border-brand">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-white/10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 gap-4 text-center divide-x divide-white/10 max-w-lg mx-auto">
             <div class="fade-in-up">
-                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Configuration</p>
-                <p class="text-white font-display font-bold text-lg md:text-xl">Large 2, 3 & 4 BHK</p>
-            </div>
-            <div class="fade-in-up delay-100">
                 <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Total Units</p>
                 <p class="text-white font-display font-bold text-lg md:text-xl">90 Boutique Homes</p>
             </div>
-            <div class="fade-in-up delay-200">
-                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Location</p>
-                <p class="text-white font-display font-bold text-sm md:text-base mt-1">Hennur Main Road<br/><span class="text-xs font-normal opacity-80">(Inside a Gated Community)</span></p>
-            </div>
-            <div class="fade-in-up delay-300">
+            <div class="fade-in-up delay-100">
                 <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Launch Offer</p>
                 <p class="text-white font-display font-bold text-lg md:text-xl mt-1">₹8,750 / sq.ft</p>
             </div>
         </div>
     </section>
 
-    <!-- The 3 Highlights -->
+    <!-- The 3 Highlights (Swipeable on Mobile to reduce scroll) -->
     <section id="highlights" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in-up">
+            <div class="text-center mb-12 fade-in-up">
                 <h2 class="font-display font-bold text-3xl md:text-4xl text-primary mb-4">Classique Willowbell Highlights</h2>
                 <div class="w-24 h-1.5 bg-brand mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Swipeable container on mobile, standard grid on desktop -->
+            <div class="flex md:grid md:grid-cols-3 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-6">
                 <!-- Highlight 1 -->
-                <div class="fade-in-up p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
+                <div class="snap-center shrink-0 w-[85vw] md:w-auto fade-in-up p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">🏢</div>
                     <h3 class="font-display font-bold text-xl text-primary mb-3">Exclusive Low-Density Living</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">90 boutique large spaced apartments inside a gated serene community ensuring absolute privacy, abundant natural light, and a quietly confident community.</p>
                 </div>
                 <!-- Highlight 2 -->
-                <div class="fade-in-up delay-100 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
+                <div class="snap-center shrink-0 w-[85vw] md:w-auto fade-in-up delay-100 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">📍</div>
                     <h3 class="font-display font-bold text-xl text-primary mb-3">Strategic Connectivity</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Perfectly positioned for seamless access to the Proposed Bengaluru Business Corridor (BBC) and Kempegowda International Airport. Right next to major landmarks like Bhartiya City, Manyata Tech Park phase 2, 5 mins from upcoming peripheral ring road, 20 mins from airport, 10 mins to Aerospace park etc.</p>
                 </div>
                 <!-- Highlight 3 -->
-                <div class="fade-in-up delay-200 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
+                <div class="snap-center shrink-0 w-[85vw] md:w-auto fade-in-up delay-200 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">🏊‍♂️</div>
                     <h3 class="font-display font-bold text-xl text-primary mb-3">Resort-Style Amenities</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Elevate your lifestyle with our Sky Deck Infinity Pool, Health & Fitness Center, Children's Play Area, Working Spaces, Indoor Activities, Sauna and beautifully landscaped terrace gardens.</p>
@@ -303,12 +289,11 @@
             <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
                 <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_Terrace.webp" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Terrace">
             </div>
-            <!-- Spacer for mobile scroll padding -->
             <div class="shrink-0 w-6 md:w-0"></div>
         </div>
     </section>
 
-    <!-- Location & Connectivity Map -->
+    <!-- Location & Connectivity Map (Swipeable on mobile for location features) -->
     <section id="location" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-12 items-center">
@@ -317,14 +302,28 @@
                     <h2 class="font-display font-bold text-3xl md:text-4xl text-primary mb-4">Location & Connectivity</h2>
                     <div class="w-24 h-1.5 bg-brand mx-auto lg:mx-0 rounded-full mb-6"></div>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        Situated on a 60 ft wide tree-lined boulevard in Kanakashree Layout, Hennur Road. The project offers proximity to Bengaluru's most vital hubs, International Schools, Hospitals, High End Restaurants and Shopping & Entertainment options.
+                        Situated on a 60 ft wide tree-lined boulevard in Kanakashree Layout, Hennur Road. Proximity to vital hubs, International Schools, Hospitals, High End Restaurants and Entertainment options.
                     </p>
-                    <ul class="space-y-4 text-primary font-semibold text-left mx-auto max-w-sm lg:mx-0">
-                        <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand">✈️</div> Kempegowda International Airport</li>
-                        <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand">🛍️</div> Bhartiya City & High-End Retail</li>
-                        <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand">🏢</div> Aerospace Park & Tech Hubs</li>
-                        <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand">🎓</div> Top International Schools & Hospitals</li>
-                    </ul>
+                    
+                    <!-- Swipeable cards on mobile to reduce scroll depth -->
+                    <div class="flex md:grid md:grid-cols-1 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 pb-2">
+                        <div class="snap-center shrink-0 w-[75vw] md:w-auto bg-surface p-4 rounded-xl border border-gray-100 flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand flex-shrink-0">✈️</div> 
+                            <span class="font-semibold text-primary text-sm">Kempegowda International Airport</span>
+                        </div>
+                        <div class="snap-center shrink-0 w-[75vw] md:w-auto bg-surface p-4 rounded-xl border border-gray-100 flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand flex-shrink-0">🛍️</div> 
+                            <span class="font-semibold text-primary text-sm">Bhartiya City & High-End Retail</span>
+                        </div>
+                        <div class="snap-center shrink-0 w-[75vw] md:w-auto bg-surface p-4 rounded-xl border border-gray-100 flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand flex-shrink-0">🏢</div> 
+                            <span class="font-semibold text-primary text-sm">Aerospace Park & Tech Hubs</span>
+                        </div>
+                        <div class="snap-center shrink-0 w-[75vw] md:w-auto bg-surface p-4 rounded-xl border border-gray-100 flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand flex-shrink-0">🎓</div> 
+                            <span class="font-semibold text-primary text-sm">Top International Schools & Hospitals</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="w-full lg:w-2/3 fade-in-up delay-100">
@@ -333,6 +332,38 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- About AMV Ventures & Completed Projects Section -->
+    <section id="about" class="py-16 md:py-24 bg-surface border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-primary mb-4">About AMV Build</h2>
+                <div class="w-24 h-1.5 bg-brand mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Allegro Mahabaleshwara Ventures (AMV Build) is a strategic collaboration between two trusted real estate developers—<strong>Allegro</strong> and <strong>Mahabaleshwara</strong>—bringing decades of excellence, architectural finesse, and technical mastery to Bengaluru.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 max-w-4xl mx-auto">
+                <h3 class="font-display font-bold text-xl text-primary mb-4 text-center">Notable Completed Projects in Bengaluru</h3>
+                <p class="text-sm text-gray-500 text-center mb-6">Building trust through landmark residential communities across the city:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <div class="p-4 bg-surface rounded-xl border border-gray-100">
+                        <p class="font-display font-bold text-primary">Classique Windchimes</p>
+                        <p class="text-xs text-gray-500 mt-1">Completed 2025</p>
+                    </div>
+                    <div class="p-4 bg-surface rounded-xl border border-gray-100">
+                        <p class="font-display font-bold text-primary">Classique Woodsville</p>
+                        <p class="text-xs text-gray-500 mt-1">Completed 2023</p>
+                    </div>
+                    <div class="p-4 bg-surface rounded-xl border border-gray-100">
+                        <p class="font-display font-bold text-primary">Classique Temple Tree</p>
+                        <p class="text-xs text-gray-500 mt-1">Yelahanka (2019)</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -349,13 +380,15 @@
                 
                 <div class="mt-4">
                     <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-2">Sales Enquiries</p>
-                    <div class="flex items-center justify-center md:justify-start space-x-3 text-white">
+                    <!-- Stacked clean layout for mobile to prevent wrapping weirdness -->
+                    <div class="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-2 md:space-y-0 md:space-x-3 text-white">
                         <a href="tel:+919972710552" class="hover:text-brand transition font-semibold text-base">+91 99727 10552</a>
-                        <span class="text-gray-600">|</span>
-                        <a href="https://wa.me/919972710552?text=Hi,%20I%20am%20interested%20in%20Classique%20Willowbell." target="_blank" class="text-[#25D366] hover:scale-110 transition flex items-center">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.124.553 4.195 1.604 6.015L.233 23.551l5.658-1.483c1.745.952 3.708 1.455 5.736 1.455 6.648 0 12.031-5.383 12.031-12.031S18.679 0 12.031 0zm3.859 17.25c-.173.488-.997.943-1.41.986-.414.043-.923.189-3.053-.695-2.553-1.06-4.208-3.666-4.338-3.839-.13-.173-1.038-1.381-1.038-2.637 0-1.256.649-1.884.887-2.123.238-.238.52-.298.692-.298.173 0 .346.008.498.016.166.009.388-.063.593.433.216.519.735 1.794.8 1.924.065.13.108.282.022.455-.086.173-.13.282-.26.434-.13.151-.274.332-.39.454-.13.13-.269.273-.119.533.151.26 .67 1.108 1.442 1.799.998.892 1.83 1.171 2.089 1.298.259.127.411.105.563-.062.152-.167.649-.757.822-1.017.173-.26.346-.217.584-.13.238.086 1.514.714 1.774.844.26.13.433.195.498.303.065.108.065.627-.108 1.115z"/></svg>
+                        <span class="hidden md:inline text-gray-600">|</span>
+                        <a href="https://wa.me/919972710552?text=Hi,%20I%20am%20interested%20in%20Classique%20Willowbell." target="_blank" class="text-[#25D366] hover:scale-110 transition flex items-center space-x-1">
+                            <svg class="w-5 h-5 inline" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.124.553 4.195 1.604 6.015L.233 23.551l5.658-1.483c1.745.952 3.708 1.455 5.736 1.455 6.648 0 12.031-5.383 12.031-12.031S18.679 0 12.031 0zm3.859 17.25c-.173.488-.997.943-1.41.986-.414.043-.923.189-3.053-.695-2.553-1.06-4.208-3.666-4.338-3.839-.13-.173-1.038-1.381-1.038-2.637 0-1.256.649-1.884.887-2.123.238-.238.52-.298.692-.298.173 0 .346.008.498.016.166.009.388-.063.593.433.216.519.735 1.794.8 1.924.065.13.108.282.022.455-.086.173-.13.282-.26.434-.13.151-.274.332-.39.454-.13.13-.269.273-.119.533.151.26 .67 1.108 1.442 1.799.998.892 1.83 1.171 2.089 1.298.259.127.411.105.563-.062.152-.167.649-.757.822-1.017.173-.26.346-.217.584-.13.238.086 1.514.714 1.774.844.26.13.433.195.498.303.065.108.065.627-.108 1.115z"/></svg>
+                            <span class="text-xs text-gray-300 md:hidden ml-1">WhatsApp Advisor</span>
                         </a>
-                        <span class="text-gray-600">|</span>
+                        <span class="hidden md:inline text-gray-600">|</span>
                         <a href="mailto:sales@amvbuild.com" class="hover:text-brand transition font-semibold text-base">sales@amvbuild.com</a>
                     </div>
                 </div>
@@ -378,12 +411,10 @@
 
     <!-- Logic for Form Submission & Modals -->
     <script>
-        // Modal Logic
         const unlockModal = document.getElementById('unlock-modal');
         function openModal() { unlockModal.classList.remove('hidden'); }
         function closeModal() { unlockModal.classList.add('hidden'); }
 
-        // Webhook Submission URL
         const WEBHOOK_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"; 
 
         function handleLeadSubmission(e, formType) {
