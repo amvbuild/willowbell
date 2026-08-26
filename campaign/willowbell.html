@@ -10,16 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (CDN for Landing Pages) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: '#DFB558', /* Updated Secondary: Buttons, Headings, Highlights */
-                        brandHover: '#C89D42', /* Slightly darker for button hover states */
-                        primary: '#204633', /* Primary: Borders, Dark Backgrounds, Footer */
+                        brand: '#DFB558', /* Secondary */
+                        brandHover: '#C89D42', 
+                        primary: '#204633', /* Primary */
                         surface: '#F8FAFC'
                     },
                     fontFamily: {
@@ -31,213 +31,379 @@
         }
     </script>
     <style>
-        /* Smooth transitions for the form to thank-you state */
-        .fade-in { animation: fadeIn 0.5s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .hidden-state { display: none; }
+        /* Smooth Scrolling for Nav Anchors */
+        html { scroll-behavior: smooth; }
+        
+        /* High-Performance Staggered Animations */
+        .hero-img-anim { animation: subtleZoom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; transform: scale(1.05); }
+        @keyframes subtleZoom { to { transform: scale(1); } }
+        
+        .fade-in-up { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(25px); }
+        .delay-100 { animation-delay: 150ms; }
+        .delay-200 { animation-delay: 300ms; }
+        .delay-300 { animation-delay: 450ms; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        
+        /* Swipeable Gallery classes */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Blur for locked plans */
+        .blur-gate { filter: blur(12px) grayscale(50%); pointer-events: none; transition: filter 0.5s ease; }
+        .hidden-state { display: none !important; }
     </style>
 </head>
-<body class="font-body text-gray-800 antialiased bg-white">
+<body class="font-body text-gray-800 antialiased bg-surface overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="w-full bg-white shadow-sm py-4 px-6 fixed top-0 z-50 border-b-2 border-primary">
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/918041000000?text=Hi,%20I%20am%20interested%20in%20Classique%20Willowbell." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition duration-300 flex items-center justify-center animate-bounce">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.124.553 4.195 1.604 6.015L.233 23.551l5.658-1.483c1.745.952 3.708 1.455 5.736 1.455 6.648 0 12.031-5.383 12.031-12.031S18.679 0 12.031 0zm3.859 17.25c-.173.488-.997.943-1.41.986-.414.043-.923.189-3.053-.695-2.553-1.06-4.208-3.666-4.338-3.839-.13-.173-1.038-1.381-1.038-2.637 0-1.256.649-1.884.887-2.123.238-.238.52-.298.692-.298.173 0 .346.008.498.016.166.009.388-.063.593.433.216.519.735 1.794.8 1.924.065.13.108.282.022.455-.086.173-.13.282-.26.434-.13.151-.274.332-.39.454-.13.13-.269.273-.119.533.151.26 .67 1.108 1.442 1.799.998.892 1.83 1.171 2.089 1.298.259.127.411.105.563-.062.152-.167.649-.757.822-1.017.173-.26.346-.217.584-.13.238.086 1.514.714 1.774.844.26.13.433.195.498.303.065.108.065.627-.108 1.115z"/></svg>
+    </a>
+
+    <!-- Top Navigation Header -->
+    <header class="w-full bg-white/95 backdrop-blur-sm shadow-sm py-3 px-6 fixed top-0 z-50 border-b border-primary/20">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="font-display font-bold text-2xl text-primary">AMV<span class="text-brand">Build</span></div>
-            <a href="tel:+919845722552" class="font-display font-semibold text-primary hover:text-brand transition">+91 98-45-722552</a>
+            
+            <!-- Left: Classique Willowbell Logo (Updated to Green Vector) -->
+            <a href="#" class="flex-shrink-0">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/08/Classique-Willowbell-LogoVector-Filegreen-copy-1024x600.webp" alt="Classique Willowbell" class="h-8 md:h-12 object-contain">
+            </a>
+
+            <!-- Center: Anchor Nav (Desktop Only) -->
+            <nav class="hidden lg:flex space-x-8 font-display font-bold text-sm text-primary">
+                <a href="#highlights" class="hover:text-brand transition">Highlights</a>
+                <a href="#plans" class="hover:text-brand transition">Floor Plans</a>
+                <a href="#gallery" class="hover:text-brand transition">Gallery</a>
+                <a href="#location" class="hover:text-brand transition">Location</a>
+            </nav>
+            
+            <!-- Right: AMV Build Logo -->
+            <a href="#" class="flex-shrink-0">
+                <img src="https://amvbuild.in/wp-content/uploads/2022/10/logo-amv.jpg" alt="AMV Build" class="h-8 md:h-10 object-contain mix-blend-multiply">
+            </a>
+            
         </div>
     </header>
 
+    <!-- Modal for Gated Content -->
+    <div id="unlock-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="relative bg-white w-full max-w-md rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-brand fade-in-up">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-primary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="font-display font-bold text-2xl text-primary mb-2">Unlock Floor Plans</h3>
+            <p class="text-sm text-gray-500 mb-6">Enter your details to instantly view the master plan and 2, 3 & 4 BHK layouts.</p>
+            
+            <form id="modal-form" class="space-y-4">
+                <div>
+                    <input type="text" id="modal-name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50" placeholder="Full Name">
+                </div>
+                <div>
+                    <input type="tel" id="modal-phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50" placeholder="Phone Number">
+                </div>
+                <button type="submit" id="modal-submit-btn" class="w-full bg-brand hover:bg-brandHover text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-lg">
+                    Unlock Now
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 flex items-center min-h-[90vh] bg-surface">
-        <!-- Background Image (Updated to Live WebP Image) -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_Balcony.webp" alt="Classique Willowbell Balcony" class="w-full h-full object-cover opacity-20">
-            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/40"></div>
+    <section class="relative min-h-[90vh] flex items-center pt-16 overflow-hidden">
+        <!-- Background Image with Zoom Animation -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_Balcony.webp" alt="Classique Willowbell Balcony" class="w-full h-full object-cover object-center hero-img-anim">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
-            <!-- Hero Copy -->
-            <div>
-                <span class="inline-block py-1 px-3 bg-primary text-white font-semibold rounded-full text-sm mb-4 border border-primary">Hennur Road, Bengaluru</span>
-                <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-brand leading-tight mb-4">
-                    Quietly Confident Luxury.
+            <!-- Hero Copy (Fades in slightly after image) -->
+            <div class="fade-in-up delay-100 text-center lg:text-left pt-10 lg:pt-0">
+                <span class="inline-block py-1.5 px-4 bg-brand text-white font-bold rounded-full text-xs md:text-sm mb-4 shadow-lg uppercase tracking-wider">Hennur Road, Bengaluru</span>
+                
+                <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 drop-shadow-lg">
+                    Quietly Confident <br/><span class="text-brand">Luxury.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-primary mb-6 font-display font-semibold">
-                    Exclusive 2 & 3 BHK Residences starting at ₹1.25 Cr.<br>
-                    <span class="text-brand">(New Launch Offer: ₹8,750 / sq.ft)</span>
+                
+                <p class="text-lg md:text-xl text-gray-200 mb-2 font-display font-medium max-w-lg mx-auto lg:mx-0 drop-shadow-md">
+                    Exclusive Residences Starting At
                 </p>
-                <div class="text-sm text-primary font-semibold bg-white inline-block px-4 py-2 border-2 border-primary rounded-md">
-                    RERA: PRM/KA/RERA/1251/446/PR/220526/008672
+                <div class="font-display font-extrabold text-5xl md:text-6xl text-brand drop-shadow-xl mb-6">
+                    ₹1.25 Cr*
                 </div>
             </div>
 
-            <!-- Lead Capture Form Area -->
-            <div class="bg-white rounded-xl shadow-xl p-8 border-t-4 border-primary">
-                
-                <!-- The Form -->
+            <!-- Lead Capture Form (Fades in immediately after text) -->
+            <div class="fade-in-up delay-200 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-brand max-w-md w-full mx-auto lg:ml-auto">
                 <div id="lead-capture-container">
-                    <h3 class="font-display font-bold text-2xl text-brand mb-2">Unlock Launch Pricing</h3>
-                    <p class="text-sm text-gray-500 mb-6">Register your interest to download the cost sheet and master plans instantly.</p>
+                    <h3 class="font-display font-bold text-2xl text-primary mb-1">Unlock Launch Pricing</h3>
+                    <p class="text-sm text-gray-600 mb-6">Register to download the cost sheet instantly.</p>
                     
                     <form id="willowbell-form" class="space-y-4">
                         <div>
-                            <label class="block text-sm font-semibold text-primary mb-1">Full Name</label>
-                            <input type="text" id="lead-name" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:ring-0 focus:border-brand outline-none transition" placeholder="Enter your name">
+                            <input type="text" id="lead-name" required class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white" placeholder="Full Name">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-primary mb-1">Phone Number</label>
-                            <input type="tel" id="lead-phone" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:ring-0 focus:border-brand outline-none transition" placeholder="+91">
+                            <input type="tel" id="lead-phone" required class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white" placeholder="Phone Number (+91)">
                         </div>
                         
-                        <button type="submit" id="submit-btn" class="w-full bg-brand hover:bg-brandHover text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-lg shadow-brand/30">
+                        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-green-900 text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-xl shadow-primary/30 mt-2">
                             Download Information Now
                         </button>
                         
-                        <p class="text-xs text-gray-400 text-center mt-4">
-                            By submitting this form, you agree to our <a href="https://amvbuild.in/terms-of-use/" target="_blank" class="underline hover:text-brand">Terms of Use</a> and <a href="https://amvbuild.in/privacy-policy/" target="_blank" class="underline hover:text-brand">Privacy Policy</a>.
-                        </p>
+                        <!-- RERA as a Trust Signal -->
+                        <div class="text-center mt-4 border-t border-gray-200 pt-3">
+                            <p class="text-xs text-gray-500 font-semibold">RERA Registered Project</p>
+                            <p class="text-[10px] text-gray-400 font-mono mt-1">PRM/KA/RERA/1251/446/PR/220526/008672</p>
+                        </div>
                     </form>
                 </div>
 
-                <!-- The Thank You State (Hidden initially) -->
-                <div id="thank-you-container" class="hidden-state text-center py-6 fade-in">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                <!-- Thank You State -->
+                <div id="thank-you-container" class="hidden-state text-center py-4">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 mb-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                     </div>
-                    <h3 class="font-display font-bold text-2xl text-brand mb-2">Thank You!</h3>
-                    <p class="text-sm text-gray-600 mb-8">Your request has been received. You can access your documents below.</p>
+                    <h3 class="font-display font-bold text-xl text-primary mb-2">Request Received!</h3>
+                    <p class="text-sm text-gray-600 mb-6">You can now access your documents below.</p>
                     
-                    <div class="space-y-3">
-                        <a href="#" target="_blank" class="block w-full bg-surface text-primary border-2 border-primary font-semibold py-3 rounded-lg hover:bg-gray-50 transition">
-                            📄 Download E-Brochure
-                        </a>
-                        <a href="#" target="_blank" class="block w-full bg-surface text-primary border-2 border-primary font-semibold py-3 rounded-lg hover:bg-gray-50 transition">
-                            📐 View Floor Plans
-                        </a>
-                        <a href="https://wa.me/919972710552?text=Hi,%20I%20just%20registered%20for%20Classique%20Willowbell%20and%20would%20like%20to%20know%20more." target="_blank" class="block w-full bg-[#25D366] text-white font-bold py-3 rounded-lg hover:bg-[#128C7E] transition shadow-md border border-[#25D366]">
-                            💬 Chat with Sales on WhatsApp
-                        </a>
-                    </div>
+                    <a href="#" target="_blank" class="block w-full bg-brand text-white font-bold py-3 rounded-lg hover:bg-brandHover transition shadow-md mb-3">
+                        📄 Download E-Brochure
+                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Highlights Section -->
-    <section class="py-20 bg-white border-y border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-display font-bold text-3xl md:text-4xl text-brand mb-4">Designed for the Discerning</h2>
-                <div class="w-24 h-1 bg-primary mx-auto"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="text-center p-6 bg-surface rounded-xl border-2 border-gray-100 hover:border-primary transition duration-300">
-                    <div class="text-brand text-4xl mb-4">📍</div>
-                    <h3 class="font-display font-bold text-xl text-brand mb-3">Prime Location</h3>
-                    <p class="text-gray-600 text-sm">Strategically located on Hennur Road, offering immediate access to the Airport, Tech Parks, and Bhartiya Mall while maintaining a quiet, picturesque environment.</p>
+        </div>
+    </section>
+
+    <!-- Key Statistics Bar -->
+    <section class="bg-primary py-6 relative z-20 shadow-lg border-b-4 border-brand">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-white/10">
+            <div class="fade-in-up">
+                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Configuration</p>
+                <p class="text-white font-display font-bold text-lg md:text-xl">Large 2, 3 & 4 BHK</p>
+            </div>
+            <div class="fade-in-up delay-100">
+                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Total Units</p>
+                <p class="text-white font-display font-bold text-lg md:text-xl">90 Boutique Homes</p>
+            </div>
+            <div class="fade-in-up delay-200">
+                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Location</p>
+                <p class="text-white font-display font-bold text-sm md:text-base mt-1">Hennur Main Road<br/><span class="text-xs font-normal opacity-80">(Inside a Gated Community)</span></p>
+            </div>
+            <div class="fade-in-up delay-300">
+                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Launch Offer</p>
+                <p class="text-white font-display font-bold text-lg md:text-xl mt-1">₹8,750 / sq.ft</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 3 Highlights -->
+    <section id="highlights" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-primary mb-4">Classique Willowbell Highlights</h2>
+                <div class="w-24 h-1.5 bg-brand mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Highlight 1 -->
+                <div class="fade-in-up p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">🏢</div>
+                    <h3 class="font-display font-bold text-xl text-primary mb-3">Exclusive Low-Density Living</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">90 boutique large spaced apartments inside a gated serene community ensuring absolute privacy, abundant natural light, and a quietly confident community.</p>
                 </div>
-                <div class="text-center p-6 bg-surface rounded-xl border-2 border-gray-100 hover:border-primary transition duration-300">
-                    <div class="text-brand text-4xl mb-4">☀️</div>
-                    <h3 class="font-display font-bold text-xl text-brand mb-3">Natural Light & Air</h3>
-                    <p class="text-gray-600 text-sm">Smartly designed with open entry points and no external obstructions, ensuring your home receives abundant natural sunlight and fresh ventilation for a healthier lifestyle.</p>
+                <!-- Highlight 2 -->
+                <div class="fade-in-up delay-100 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">📍</div>
+                    <h3 class="font-display font-bold text-xl text-primary mb-3">Strategic Connectivity</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Perfectly positioned for seamless access to the Proposed Bengaluru Business Corridor (BBC) and Kempegowda International Airport. Right next to major landmarks like Bhartiya City, Manyata Tech Park phase 2, 5 mins from upcoming peripheral ring road, 20 mins from airport, 10 mins to Aerospace park etc.</p>
                 </div>
-                <div class="text-center p-6 bg-surface rounded-xl border-2 border-gray-100 hover:border-primary transition duration-300">
-                    <div class="text-brand text-4xl mb-4">🌿</div>
-                    <h3 class="font-display font-bold text-xl text-brand mb-3">Eco-Friendly Living</h3>
-                    <p class="text-gray-600 text-sm">A life in harmony with nature, featuring lush green spaces, superior water management, and rainwater harvesting to ensure sustainable, distraction-free community living.</p>
+                <!-- Highlight 3 -->
+                <div class="fade-in-up delay-200 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">🏊‍♂️</div>
+                    <h3 class="font-display font-bold text-xl text-primary mb-3">Resort-Style Amenities</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Elevate your lifestyle with our Sky Deck Infinity Pool, Health & Fitness Center, Children's Play Area, Working Spaces, Indoor Activities, Sauna and beautifully landscaped terrace gardens.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Overview & Amenities Gallery -->
-    <section class="py-20 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <!-- Floor Plan Gating Section -->
+    <section id="plans" class="py-16 md:py-24 bg-surface border-y border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 text-center fade-in-up">
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-primary mb-4">Floor & Layout Plans</h2>
+            <div class="w-24 h-1.5 bg-brand mx-auto rounded-full mb-8"></div>
+            
+            <div class="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-50 bg-gray-100">
                 
-                <!-- Text Content -->
-                <div>
-                    <h2 class="font-display font-bold text-3xl md:text-4xl text-brand mb-6">A Lifestyle Above the Rest</h2>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Classique Willowbell is crafted for those who appreciate understated luxury. Set in the fast-appreciating corridor of Hennur Road, this low-density development ensures you never have to compromise on space, privacy, or convenience.
-                    </p>
-                    <ul class="space-y-4 text-primary font-semibold">
-                        <li class="flex items-center"><span class="text-brand text-xl mr-3">✓</span> Semi-Covered Rooftop Swimming Pool</li>
-                        <li class="flex items-center"><span class="text-brand text-xl mr-3">✓</span> Fully-Equipped Air-Conditioned Gymnasium</li>
-                        <li class="flex items-center"><span class="text-brand text-xl mr-3">✓</span> Beautifully Landscaped Terrace Gardens</li>
-                        <li class="flex items-center"><span class="text-brand text-xl mr-3">✓</span> 100% Generator Backup & Smart Security</li>
-                    </ul>
+                <!-- Tab Visuals -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 bg-white py-4 border-b border-gray-200">
+                    <span class="px-4 py-1.5 md:px-6 md:py-2 bg-primary text-white font-bold rounded-full text-xs md:text-sm shadow-md">Master Plan</span>
+                    <span class="px-4 py-1.5 md:px-6 md:py-2 bg-gray-100 text-gray-500 font-bold rounded-full text-xs md:text-sm">2 BHK</span>
+                    <span class="px-4 py-1.5 md:px-6 md:py-2 bg-gray-100 text-gray-500 font-bold rounded-full text-xs md:text-sm">3 BHK</span>
+                    <span class="px-4 py-1.5 md:px-6 md:py-2 bg-gray-100 text-gray-500 font-bold rounded-full text-xs md:text-sm">4 BHK</span>
                 </div>
 
-                <!-- Image Grid (Replace src links with live assets) -->
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="https://via.placeholder.com/600x800?text=Pool+Render" alt="Rooftop Pool" class="rounded-lg shadow-md w-full h-64 object-cover border border-gray-200">
-                    <img src="https://via.placeholder.com/600x800?text=Gym+Render" alt="Gymnasium" class="rounded-lg shadow-md w-full h-64 object-cover mt-8 border border-gray-200">
+                <!-- Blurred Image -->
+                <img id="locked-plan-img" src="https://via.placeholder.com/1200x700?text=Detailed+Floor+Plan+View" alt="Floor Plan" class="w-full h-64 md:h-96 object-cover blur-gate opacity-70">
+                
+                <!-- The Lock Icon & Button overlay (Text removed per request) -->
+                <div id="plan-overlay" class="absolute inset-0 z-10 flex flex-col items-center justify-center top-14">
+                    <div class="bg-white/95 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-2xl text-center max-w-sm w-[90%] border border-gray-100">
+                        <div class="w-16 h-16 bg-primary text-brand rounded-full flex items-center justify-center mx-auto text-3xl mb-6 shadow-inner">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-6">Unlock instant access to master plans and high-resolution layouts.</p>
+                        <button onclick="openModal()" class="w-full bg-brand text-white font-bold py-3.5 rounded-lg hover:bg-brandHover transition shadow-lg">
+                            Unlock Plans Now
+                        </button>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Swipeable Photo Gallery -->
+    <section id="gallery" class="py-16 bg-primary overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-10 fade-in-up">
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-4">The Classique Experience</h2>
+            <div class="w-24 h-1.5 bg-brand rounded-full mb-4"></div>
+            <p class="text-gray-300">Swipe to explore the meticulously designed interiors and amenities.</p>
+        </div>
+        
+        <!-- The Swipeable Container -->
+        <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 px-6 pb-8 max-w-7xl mx-auto cursor-grab active:cursor-grabbing fade-in-up delay-100">
+            <!-- Items -->
+            <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/Classique-Willowbell.webp" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Exterior">
+            </div>
+            <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/Swimming-Pool-AMV-Build.webp" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Pool">
+            </div>
+            <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_LobbyMain.webp" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Lobby">
+            </div>
+            <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/4BHK_Living_Main.webp" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Living Room">
+            </div>
+            <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/4BHK_Bed1.webp" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Master Bedroom">
+            </div>
+            <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_Gym.webp" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Gym">
+            </div>
+            <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_Terrace.webp" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Terrace">
+            </div>
+            <!-- Spacer for mobile scroll padding -->
+            <div class="shrink-0 w-6 md:w-0"></div>
         </div>
     </section>
 
     <!-- Location & Connectivity Map -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="font-display font-bold text-3xl md:text-4xl text-brand mb-4">Unbeatable Connectivity</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto mb-10">Located in Kanakashree Layout on a 60 ft wide tree-lined boulevard, placing you minutes away from North Bengaluru's biggest hubs.</p>
-            
-            <!-- Google Maps Embed -->
-            <div class="w-full h-96 rounded-xl overflow-hidden shadow-lg border-4 border-primary">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.685361099195!2d77.6536!3d13.0558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAzJzIwLjkiTiA3N8KwMzknMTMuMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+    <section id="location" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                
+                <div class="w-full lg:w-1/3 fade-in-up text-center lg:text-left">
+                    <h2 class="font-display font-bold text-3xl md:text-4xl text-primary mb-4">Location & Connectivity</h2>
+                    <div class="w-24 h-1.5 bg-brand mx-auto lg:mx-0 rounded-full mb-6"></div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Situated on a 60 ft wide tree-lined boulevard in Kanakashree Layout, Hennur Road. The project offers proximity to Bengaluru's most vital hubs, International Schools, Hospitals, High End Restaurants and Shopping & Entertainment options.
+                    </p>
+                    <ul class="space-y-4 text-primary font-semibold text-left mx-auto max-w-sm lg:mx-0">
+                        <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand">✈️</div> Kempegowda International Airport</li>
+                        <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand">🛍️</div> Bhartiya City & High-End Retail</li>
+                        <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand">🏢</div> Aerospace Park & Tech Hubs</li>
+                        <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand">🎓</div> Top International Schools & Hospitals</li>
+                    </ul>
+                </div>
+
+                <div class="w-full lg:w-2/3 fade-in-up delay-100">
+                    <div class="w-full h-[400px] rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.685361099195!2d77.6536!3d13.0558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAzJzIwLjkiTiA3N8KwMzknMTMuMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Simple Footer -->
-    <footer class="bg-primary text-gray-300 py-8 border-t-4 border-brand">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm">
-            <p>&copy; 2026 Allegro Mahabaleshwara Ventures LLP. All Rights Reserved.</p>
-            <div class="space-x-4 mt-4 md:mt-0 font-semibold">
-                <a href="https://amvbuild.in/terms-of-use/" class="hover:text-brand transition">Terms of Use</a>
-                <a href="https://amvbuild.in/privacy-policy/" class="hover:text-brand transition">Privacy Policy</a>
+    <!-- Comprehensive Legal Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t-4 border-brand">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-center md:text-left">
+            
+            <!-- Left Column: Company Info -->
+            <div>
+                <p class="font-display font-bold text-white text-lg mb-2">Classique Willowbell</p>
+                <p class="mb-4 text-gray-300">2 & 3 BHK homes at Hennur Road, Bengaluru.<br/>
+                RERA PRM/KA/RERA/1251/446/PR/220526/008672.</p>
+                
+                <div class="space-y-3 mt-6">
+                    <div>
+                        <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-1">Sales Enquiries</p>
+                        <a href="tel:+918041000000" class="text-white hover:text-brand transition block">+91 80 4100 0000</a>
+                    </div>
+                    <div>
+                        <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-1">WhatsApp Our Advisor</p>
+                        <a href="mailto:sales@amvbuild.com" class="text-white hover:text-brand transition block">sales@amvbuild.com</a>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Right Column: Disclaimers -->
+            <div class="flex flex-col justify-end text-xs text-gray-500 leading-relaxed md:text-right pt-6 md:pt-0">
+                <p class="mb-4">
+                    All images are artistic representations. Areas, specifications and amenities are indicative and subject to approvals and change. This page is an invitation to enquire and does not constitute an offer or contract.
+                </p>
+                <p>&copy; 2026 Allegro Mahabaleshwara Ventures.</p>
+                <div class="mt-4 space-x-4">
+                    <a href="https://amvbuild.in/terms-of-use/" class="hover:text-brand transition">Terms of Use</a>
+                    <a href="https://amvbuild.in/privacy-policy/" class="hover:text-brand transition">Privacy Policy</a>
+                </div>
+            </div>
+            
         </div>
     </footer>
 
-    <!-- Form Submission Logic -->
+    <!-- Logic for Form Submission & Modals -->
     <script>
-        const form = document.getElementById('willowbell-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const formContainer = document.getElementById('lead-capture-container');
-        const thankYouContainer = document.getElementById('thank-you-container');
+        // Modal Logic
+        const unlockModal = document.getElementById('unlock-modal');
+        function openModal() { unlockModal.classList.remove('hidden'); }
+        function closeModal() { unlockModal.classList.add('hidden'); }
 
-        // IMPORTANT: Replace this URL with your actual Google Apps Script Webhook URL
+        // Webhook Submission URL
         const WEBHOOK_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"; 
 
-        form.addEventListener('submit', function(e) {
+        function handleLeadSubmission(e, formType) {
             e.preventDefault();
             
-            // Change button state
-            const originalBtnText = submitBtn.innerText;
-            submitBtn.innerText = "Processing...";
-            submitBtn.disabled = true;
-            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            let nameInput, phoneInput, btn;
+            
+            if(formType === 'hero') {
+                nameInput = document.getElementById('lead-name');
+                phoneInput = document.getElementById('lead-phone');
+                btn = document.getElementById('submit-btn');
+            } else {
+                nameInput = document.getElementById('modal-name');
+                phoneInput = document.getElementById('modal-phone');
+                btn = document.getElementById('modal-submit-btn');
+            }
 
-            // Gather data and map phone to "whatsapp" exactly as required by the AppSheet script
+            const originalBtnText = btn.innerText;
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
             const payload = {
-                name: document.getElementById('lead-name').value,
-                whatsapp: document.getElementById('lead-phone').value
+                name: nameInput.value,
+                whatsapp: phoneInput.value
             };
 
-            // Send to Google Sheet
             fetch(WEBHOOK_URL, {
                 method: 'POST',
                 mode: 'no-cors', 
@@ -245,18 +411,29 @@
                 body: JSON.stringify(payload)
             })
             .then(() => {
-                // Hide form, show Thank You + Assets
-                formContainer.classList.add('hidden-state');
-                thankYouContainer.classList.remove('hidden-state');
+                if(formType === 'hero') {
+                    document.getElementById('lead-capture-container').classList.add('hidden-state');
+                    document.getElementById('thank-you-container').classList.remove('hidden-state');
+                } else {
+                    closeModal();
+                    document.getElementById('locked-plan-img').classList.remove('blur-gate');
+                    document.getElementById('plan-overlay').classList.add('hidden-state');
+                    setTimeout(() => {
+                        document.getElementById('locked-plan-img').scrollIntoView({behavior: 'smooth', block: 'center'});
+                    }, 300);
+                }
             })
             .catch(error => {
                 console.error("Error submitting lead:", error);
                 alert("Something went wrong. Please try again or contact us directly on WhatsApp.");
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                btn.innerText = originalBtnText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
             });
-        });
+        }
+
+        document.getElementById('willowbell-form').addEventListener('submit', (e) => handleLeadSubmission(e, 'hero'));
+        document.getElementById('modal-form').addEventListener('submit', (e) => handleLeadSubmission(e, 'modal'));
     </script>
 </body>
 </html>
