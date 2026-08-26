@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classique Willowbell | AMV</title>
     
+    <!-- Favicons & App Icons -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon.svg">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/apple-touch-icon.png">
+
     <!-- Brand Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,19 +123,19 @@
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
-            <!-- Hero Copy (Strictly Left-Aligned) -->
-            <div class="fade-in-up delay-100 text-left">
+            <!-- Hero Copy (Centered on mobile, Left-aligned on desktop) -->
+            <div class="fade-in-up delay-100 text-center lg:text-left">
                 <!-- Classique Willowbell Prominent Logo -->
-                <img src="https://amvbuild.in/wp-content/uploads/2026/05/CW-Logo-2.png" alt="Classique Willowbell" class="h-16 md:h-24 mb-6 mr-auto object-contain drop-shadow-xl">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/CW-Logo-2.png" alt="Classique Willowbell" class="h-16 md:h-24 mb-6 mx-auto lg:mx-0 object-contain drop-shadow-xl">
                 
-                <h1 class="font-display font-extrabold text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 drop-shadow-lg text-left">
+                <h1 class="font-display font-extrabold text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 drop-shadow-lg text-center lg:text-left">
                     Quietly Confident <br/><span class="text-brand">Luxury.</span>
                 </h1>
                 
-                <p class="text-base md:text-xl text-gray-200 mb-2 font-display font-medium max-w-lg mr-auto drop-shadow-md text-left">
+                <p class="text-base md:text-xl text-gray-200 mb-2 font-display font-medium max-w-lg mx-auto lg:mx-0 drop-shadow-md text-center lg:text-left">
                     Exclusive Residences Starting At
                 </p>
-                <div class="font-display font-extrabold text-4xl md:text-6xl text-brand drop-shadow-xl mb-6 text-left">
+                <div class="font-display font-extrabold text-4xl md:text-6xl text-brand drop-shadow-xl mb-6 text-center lg:text-left">
                     ₹1.25 Cr*
                 </div>
             </div>
@@ -257,39 +263,36 @@
                 
                 <!-- Pricing Breakdown Cards (Left Column - 5 cols) -->
                 <div class="lg:col-span-5 space-y-4 fade-in-up">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
+                    <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-brand bg-brand/10 px-2.5 py-1 rounded-full">Configuration</span>
-                            <h4 class="font-display font-bold text-xl text-primary mt-2">2 BHK Apartment</h4>
-                            <p class="text-sm text-gray-500 mt-0.5">1,330 sq. ft.</p>
+                            <h4 class="font-display font-bold text-lg md:text-xl text-primary">2 BHK</h4>
+                            <p class="text-xs md:text-sm text-gray-500 mt-0.5">1,330 sq. ft.</p>
                         </div>
                         <div class="text-right">
-                            <p class="text-xs text-gray-400">Starting From</p>
-                            <p class="font-display font-extrabold text-2xl text-primary">₹1.25 Cr*</p>
+                            <p class="text-[10px] md:text-xs text-gray-400">Starting From</p>
+                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹1.25 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
+                    <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-brand bg-brand/10 px-2.5 py-1 rounded-full">Configuration</span>
-                            <h4 class="font-display font-bold text-xl text-primary mt-2">3 BHK Apartment</h4>
-                            <p class="text-sm text-gray-500 mt-0.5">1,900 sq. ft.</p>
+                            <h4 class="font-display font-bold text-lg md:text-xl text-primary">3 BHK</h4>
+                            <p class="text-xs md:text-sm text-gray-500 mt-0.5">1,900 sq. ft.</p>
                         </div>
                         <div class="text-right">
-                            <p class="text-xs text-gray-400">Starting From</p>
-                            <p class="font-display font-extrabold text-2xl text-primary">₹1.60 Cr*</p>
+                            <p class="text-[10px] md:text-xs text-gray-400">Starting From</p>
+                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹1.60 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
+                    <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-brand bg-brand/10 px-2.5 py-1 rounded-full">Configuration</span>
-                            <h4 class="font-display font-bold text-xl text-primary mt-2">4 BHK Apartment</h4>
-                            <p class="text-sm text-gray-500 mt-0.5">2,700 sq. ft.</p>
+                            <h4 class="font-display font-bold text-lg md:text-xl text-primary">4 BHK</h4>
+                            <p class="text-xs md:text-sm text-gray-500 mt-0.5">2,700 sq. ft.</p>
                         </div>
                         <div class="text-right">
-                            <p class="text-xs text-gray-400">Starting From</p>
-                            <p class="font-display font-extrabold text-2xl text-primary">₹2.40 Cr*</p>
+                            <p class="text-[10px] md:text-xs text-gray-400">Starting From</p>
+                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹2.40 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
                 </div>
@@ -447,7 +450,7 @@
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
                                 <p class="font-display font-bold text-primary text-sm">Classique Windchimes</p>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Yelahanka</p>
+                                <p class="text-[11px] text-gray-500 mt-0.5">Bengaluru</p>
                             </div>
                             <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/10 text-brand font-semibold rounded-full text-[10px] self-center">Completed 2025</span>
                         </div>
@@ -573,7 +576,7 @@
         function handleLeadSubmission(e, formType) {
             e.preventDefault();
             
-            let nameInput, phoneInput;
+            let nameInput, phoneInput, btn;
             
             if(formType === 'hero') {
                 nameInput = document.getElementById('lead-name');
