@@ -56,7 +56,7 @@
 <body class="font-body text-gray-800 antialiased bg-surface overflow-x-hidden">
 
     <!-- Floating WhatsApp Widget -->
-    <a href="https://wa.me/918792937552?text=Hi,%20I%20am%20interested%20in%20Classique%20Willowbell." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition duration-300 flex items-center justify-center animate-bounce">
+    <a href="https://wa.me/918792937552?text=Hi,%20I%20am%20interested%20in%20Classique%20Willowbell." onclick="handleContactClick(event, 'whatsapp')" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition duration-300 flex items-center justify-center animate-bounce cursor-pointer">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.124.553 4.195 1.604 6.015L.233 23.551l5.658-1.483c1.745.952 3.708 1.455 5.736 1.455 6.648 0 12.031-5.383 12.031-12.031S18.679 0 12.031 0zm3.859 17.25c-.173.488-.997.943-1.41.986-.414.043-.923.189-3.053-.695-2.553-1.06-4.208-3.666-4.338-3.839-.13-.173-1.038-1.381-1.038-2.637 0-1.256.649-1.884.887-2.123.238-.238.52-.298.692-.298.173 0 .346.008.498.016.166.009.388-.063.593.433.216.519.735 1.794.8 1.924.065.13.108.282.022.455-.086.173-.13.282-.26.434-.13.151-.274.332-.39.454-.13.13-.269.273-.119.533.151.26 .67 1.108 1.442 1.799.998.892 1.83 1.171 2.089 1.298.259.127.411.105.563-.062.152-.167.649-.757.822-1.017.173-.26.346-.217.584-.13.238.086 1.514.714 1.774.844.26.13.433.195.498.303.065.108.065.627-.108 1.115z"/></svg>
     </a>
 
@@ -65,7 +65,7 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
             <!-- Left: Contact CTA -->
-            <a href="tel:+918792937552" class="flex items-center font-display font-bold text-primary hover:text-brand transition text-sm md:text-base flex-shrink-0">
+            <a href="tel:+918792937552" onclick="handleContactClick(event, 'phone')" class="flex items-center font-display font-bold text-primary hover:text-brand transition text-sm md:text-base flex-shrink-0 cursor-pointer">
                 <svg class="w-5 h-5 mr-1 md:mr-2 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 <span>+91 87929 37552</span>
             </a>
@@ -87,15 +87,15 @@
         </div>
     </header>
 
-    <!-- Modal for Gated Content -->
+    <!-- Modal for Gated Content / Quick Contact Capture -->
     <div id="unlock-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
         <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
         <div class="relative bg-white w-full max-w-md rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-brand fade-in-up">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-primary">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <h3 class="font-display font-bold text-2xl text-primary mb-2">Unlock Floor Plans</h3>
-            <p class="text-sm text-gray-500 mb-6">Enter your details to instantly view the master plan and 2, 3 & 4 BHK layouts.</p>
+            <h3 id="modal-title" class="font-display font-bold text-2xl text-primary mb-2">Unlock Floor Plans</h3>
+            <p id="modal-desc" class="text-sm text-gray-500 mb-6">Enter your details to instantly view the master plan and layouts.</p>
             
             <form id="modal-form" class="space-y-4">
                 <div>
@@ -108,6 +108,16 @@
                     Unlock Now
                 </button>
             </form>
+        </div>
+    </div>
+
+    <!-- Image Zoom Lightbox Modal -->
+    <div id="zoom-modal" class="fixed inset-0 z-[110] hidden flex items-center justify-center bg-black/80 backdrop-blur-md px-4" onclick="closeZoomModal()">
+        <div class="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center p-2" onclick="event.stopPropagation()">
+            <button onclick="closeZoomModal()" class="absolute -top-12 right-0 text-white hover:text-brand bg-black/50 p-2 rounded-full">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <img id="zoomed-img" src="" alt="Zoomed Plan" class="max-h-[85vh] max-w-full object-contain rounded-xl shadow-2xl bg-white p-2">
         </div>
     </div>
 
@@ -171,12 +181,12 @@
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 mb-3">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                     </div>
-                    <h3 class="font-display font-bold text-xl text-primary mb-2">Request Received!</h3>
-                    <p class="text-sm text-gray-600 mb-6">You can now access your documents below.</p>
+                    <h3 class="font-display font-bold text-xl text-primary mb-2">Offer Request Received!</h3>
+                    <p class="text-sm text-gray-600 mb-6">Our sales team will get in touch with you shortly to lock your launch price. In the meantime, your floor plans have been unlocked below.</p>
                     
-                    <a href="#" target="_blank" class="block w-full bg-brand text-white font-bold py-3 rounded-lg hover:bg-brandHover transition shadow-md mb-3">
-                        📄 Download E-Brochure
-                    </a>
+                    <button onclick="scrollToPlans()" class="block w-full bg-brand text-white font-bold py-3 rounded-lg hover:bg-brandHover transition shadow-md mb-3 text-center cursor-pointer">
+                        View Floor Plans ↓
+                    </button>
                 </div>
             </div>
             
@@ -303,15 +313,94 @@
                         
                         <!-- Tab Visuals -->
                         <div class="flex flex-wrap justify-center gap-2 mb-6 bg-surface py-3 rounded-xl border border-gray-200">
-                            <span class="px-4 py-1.5 bg-primary text-white font-bold rounded-full text-xs shadow-sm">Master Plan</span>
-                            <span class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs">2 BHK</span>
-                            <span class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs">3 BHK</span>
-                            <span class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs">4 BHK</span>
+                            <button onclick="switchPlanTab('master')" id="tab-master" class="px-4 py-1.5 bg-primary text-white font-bold rounded-full text-xs shadow-sm transition cursor-pointer">Master Plan</button>
+                            <button onclick="switchPlanTab('2bhk')" id="tab-2bhk" class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs transition cursor-pointer">2 BHK</button>
+                            <button onclick="switchPlanTab('3bhk')" id="tab-3bhk" class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs transition cursor-pointer">3 BHK</button>
+                            <button onclick="switchPlanTab('4bhk')" id="tab-4bhk" class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs transition cursor-pointer">4 BHK</button>
                         </div>
 
-                        <!-- Blurred Image Container -->
+                        <!-- Content Container -->
                         <div class="relative rounded-xl overflow-hidden">
-                            <img id="locked-plan-img" src="https://via.placeholder.com/1000x600?text=Detailed+Floor+Plan+View" alt="Floor Plan" class="w-full h-64 md:h-80 object-cover blur-gate opacity-70">
+                            <!-- Gate Container (Blurs when locked) -->
+                            <div id="plan-gate-container" class="relative">
+                                
+                                <!-- Master Plan Tab Content -->
+                                <div id="content-master" class="plan-content text-center">
+                                    <div class="relative group cursor-pointer inline-block w-full" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-master.webp')">
+                                        <img src="https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-master.webp" alt="Master Plan" class="w-full h-72 md:h-96 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
+                                            <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 text-center">
+                                        <a href="https://amvbuild.in/wp-content/uploads/2026/06/WB-TYPICAL-FLOOR-Plans-16-06.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
+                                    </div>
+                                </div>
+
+                                <!-- 2 BHK Tab Content -->
+                                <div id="content-2bhk" class="plan-content hidden-state">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-2bhk.webp')">
+                                            <img src="https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-2bhk.webp" alt="2 BHK 2D Layout" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
+                                                <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
+                                            </div>
+                                        </div>
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-2bhk-iso.webp')">
+                                            <img src="https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-2bhk-iso.webp" alt="2 BHK Isometric 3D" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
+                                                <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 text-center">
+                                        <a href="https://amvbuild.in/wp-content/uploads/2026/06/Individual-Plans-2-4-6-8-Floors-12-06-2026.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
+                                    </div>
+                                </div>
+
+                                <!-- 3 BHK Tab Content -->
+                                <div id="content-3bhk" class="plan-content hidden-state">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-3bhk.webp')">
+                                            <img src="https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-3bhk.webp" alt="3 BHK 2D Layout" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
+                                                <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
+                                            </div>
+                                        </div>
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-3bhk-so.webp')">
+                                            <img src="https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-3bhk-so.webp" alt="3 BHK Isometric 3D" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
+                                                <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 text-center">
+                                        <a href="https://amvbuild.in/wp-content/uploads/2026/06/Individual-Plans-2-4-6-8-Floors-12-06-2026.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
+                                    </div>
+                                </div>
+
+                                <!-- 4 BHK Tab Content -->
+                                <div id="content-4bhk" class="plan-content hidden-state">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-4bhk.webp')">
+                                            <img src="https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-4bhk.webp" alt="4 BHK 2D Layout" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
+                                                <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
+                                            </div>
+                                        </div>
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-4bhk-iso.webp')">
+                                            <img src="https://raw.githubusercontent.com/amvbuild/willowbell/main/willowbell-fp-4bhk-iso.webp" alt="4 BHK Isometric 3D" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
+                                                <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 text-center">
+                                        <a href="https://amvbuild.in/wp-content/uploads/2026/06/Individual-Plans-2-4-6-8-Floors-12-06-2026.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
+                                    </div>
+                                </div>
+
+                            </div>
                             
                             <!-- Lock Overlay -->
                             <div id="plan-overlay" class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white/40 backdrop-blur-sm">
@@ -320,7 +409,7 @@
                                         🔒
                                     </div>
                                     <p class="text-xs text-gray-500 mb-4">Unlock instant access to master plans and layouts.</p>
-                                    <button onclick="openModal()" class="w-full bg-brand text-white font-bold py-3 rounded-lg hover:bg-brandHover transition shadow-md text-sm">
+                                    <button onclick="openModal()" class="w-full bg-brand text-white font-bold py-3 rounded-lg hover:bg-brandHover transition shadow-md text-sm cursor-pointer">
                                         Unlock Plans Now
                                     </button>
                                 </div>
@@ -530,9 +619,9 @@
                 <div class="mt-4">
                     <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-2">Sales Enquiries</p>
                     <div class="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-2 md:space-y-0 md:space-x-3 text-white">
-                        <a href="tel:+918792937552" class="hover:text-brand transition font-semibold text-base">+91 87929 37552</a>
+                        <a href="tel:+918792937552" onclick="handleContactClick(event, 'phone')" class="hover:text-brand transition font-semibold text-base cursor-pointer">+91 87929 37552</a>
                         <span class="hidden md:inline text-gray-600">|</span>
-                        <a href="https://wa.me/918792937552?text=Hi,%20I%20am%20interested%20in%20Classique%20Willowbell." target="_blank" class="text-[#25D366] hover:scale-110 transition flex items-center space-x-1">
+                        <a href="https://wa.me/918792937552?text=Hi,%20I%20am%20interested%20in%20Classique%20Willowbell." onclick="handleContactClick(event, 'whatsapp')" class="text-[#25D366] hover:scale-110 transition flex items-center space-x-1 cursor-pointer">
                             <svg class="w-5 h-5 inline" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.124.553 4.195 1.604 6.015L.233 23.551l5.658-1.483c1.745.952 3.708 1.455 5.736 1.455 6.648 0 12.031-5.383 12.031-12.031S18.679 0 12.031 0zm3.859 17.25c-.173.488-.997.943-1.41.986-.414.043-.923.189-3.053-.695-2.553-1.06-4.208-3.666-4.338-3.839-.13-.173-1.038-1.381-1.038-2.637 0-1.256.649-1.884.887-2.123.238-.238.52-.298.692-.298.173 0 .346.008.498.016.166.009.388-.063.593.433.216.519.735 1.794.8 1.924.065.13.108.282.022.455-.086.173-.13.282-.26.434-.13.151-.274.332-.39.454-.13.13-.269.273-.119.533.151.26 .67 1.108 1.442 1.799.998.892 1.83 1.171 2.089 1.298.259.127.411.105.563-.062.152-.167.649-.757.822-1.017.173-.26.346-.217.584-.13.238.086 1.514.714 1.774.844.26.13.433.195.498.303.065.108.065.627-.108 1.115z"/></svg>
                             <span class="text-xs text-gray-300 md:hidden ml-1">WhatsApp Advisor</span>
                         </a>
@@ -557,11 +646,41 @@
         </div>
     </footer>
 
-    <!-- Logic for Form Submission, Modals, & Gallery Scroll Arrows -->
+    <!-- Logic for Form Submission, Modals, Zoom, & WhatsApp/Call Gating -->
     <script>
         const unlockModal = document.getElementById('unlock-modal');
         function openModal() { unlockModal.classList.remove('hidden'); }
         function closeModal() { unlockModal.classList.add('hidden'); }
+
+        // Zoom Modal Functions
+        function openZoomImage(imgSrc) {
+            document.getElementById('zoomed-img').src = imgSrc;
+            document.getElementById('zoom-modal').classList.remove('hidden');
+        }
+        function closeZoomModal() {
+            document.getElementById('zoom-modal').classList.add('hidden');
+        }
+
+        // Scroll to Plans Section
+        function scrollToPlans() {
+            document.getElementById('plans').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Plan Tab Switcher
+        function switchPlanTab(tabName) {
+            const tabs = ['master', '2bhk', '3bhk', '4bhk'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tab-' + t);
+                const content = document.getElementById('content-' + t);
+                if (t === tabName) {
+                    btn.className = "px-4 py-1.5 bg-primary text-white font-bold rounded-full text-xs shadow-sm transition cursor-pointer";
+                    content.classList.remove('hidden-state');
+                } else {
+                    btn.className = "px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs transition cursor-pointer";
+                    content.classList.add('hidden-state');
+                }
+            });
+        }
 
         // Desktop Gallery Scroll Function
         function scrollGallery(direction) {
@@ -570,8 +689,39 @@
             container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
-        // Your Deployed Apps Script Web App URL
         const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwkqKFIiVtpVUI_5BbHOFc5bdefL_gJ8LRYDQ4d0_O9Ol6cQy-jE-p3-VgqH4IGPZ8Q7A/exec"; 
+
+        let pendingActionUrl = "";
+        let pendingActionType = "";
+
+        function handleContactClick(event, type) {
+            event.preventDefault();
+            const targetUrl = event.currentTarget.getAttribute('href');
+            
+            if (sessionStorage.getItem('lead_captured') === 'true') {
+                executeContactAction(type, targetUrl);
+                return;
+            }
+
+            pendingActionUrl = targetUrl;
+            pendingActionType = type;
+            
+            document.getElementById('modal-title').innerText = type === 'whatsapp' ? "Connect via WhatsApp" : "Call Sales Expert";
+            document.getElementById('modal-desc').innerText = "Please share your details to instantly connect with our sales team.";
+            document.getElementById('modal-submit-btn').innerText = type === 'whatsapp' ? "Start WhatsApp Chat" : "Call Now";
+            
+            openModal();
+        }
+
+        function executeContactAction(type, url) {
+            if (type === 'whatsapp') {
+                const userName = sessionStorage.getItem('user_name') || "Customer";
+                const customText = `Hi, I am ${userName}, and I am interested in Classique Willowbell.`;
+                window.open(`https://wa.me/918792937552?text=${encodeURIComponent(customText)}`, '_blank');
+            } else {
+                window.location.href = url;
+            }
+        }
 
         function handleLeadSubmission(e, formType) {
             e.preventDefault();
@@ -582,7 +732,7 @@
                 nameInput = document.getElementById('lead-name');
                 phoneInput = document.getElementById('lead-phone');
                 btn = document.getElementById('submit-btn');
-            } else {
+            } else if(formType === 'modal') {
                 nameInput = document.getElementById('modal-name');
                 phoneInput = document.getElementById('modal-phone');
                 btn = document.getElementById('modal-submit-btn');
@@ -593,10 +743,15 @@
             btn.disabled = true;
             btn.classList.add('opacity-75', 'cursor-not-allowed');
 
-            // Matches your existing working Apps Script expected payload structure
             const payload = {
                 name: nameInput.value,
-                whatsapp: phoneInput.value
+                whatsapp: phoneInput.value,
+                email: "",
+                requirement: "0 BHK",
+                source: "Online Ads",
+                subSource: "Google Ads",
+                sourceDetails: "Google Ads LP RuffleHub",
+                timeline: "Exploring"
             };
 
             fetch(WEBHOOK_URL, {
@@ -606,16 +761,26 @@
                 body: JSON.stringify(payload)
             })
             .then(() => {
+                sessionStorage.setItem('lead_captured', 'true');
+                sessionStorage.setItem('user_name', nameInput.value);
+
                 if(formType === 'hero') {
                     document.getElementById('lead-capture-container').classList.add('hidden-state');
                     document.getElementById('thank-you-container').classList.remove('hidden-state');
-                } else {
+                } else if(formType === 'modal') {
                     closeModal();
-                    document.getElementById('locked-plan-img').classList.remove('blur-gate');
-                    document.getElementById('plan-overlay').classList.add('hidden-state');
-                    setTimeout(() => {
-                        document.getElementById('locked-plan-img').scrollIntoView({behavior: 'smooth', block: 'center'});
-                    }, 300);
+                    
+                    if (pendingActionUrl) {
+                        executeContactAction(pendingActionType, pendingActionUrl);
+                        pendingActionUrl = "";
+                        pendingActionType = "";
+                    } else {
+                        document.getElementById('plan-gate-container').classList.remove('blur-gate');
+                        document.getElementById('plan-overlay').classList.add('hidden-state');
+                        setTimeout(() => {
+                            document.getElementById('plans').scrollIntoView({behavior: 'smooth', block: 'center'});
+                        }, 300);
+                    }
                 }
             })
             .catch(error => {
