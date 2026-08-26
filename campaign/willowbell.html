@@ -106,29 +106,28 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+    <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden">
         <div class="absolute inset-0 z-0 overflow-hidden">
-            <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_Balcony.webp" alt="Classique Willowbell Balcony" class="w-full h-full object-cover object-center hero-img-anim">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+            <img src="https://amvbuild.in/wp-content/uploads/2026/05/Cam_Balcony.webp" alt="Classique Willowbell Balcony" class="w-full h-full object-cover object-[center_30%|lg:center] hero-img-anim">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20 lg:to-transparent"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-10">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
             <!-- Hero Copy -->
             <div class="fade-in-up delay-100 text-center lg:text-left">
-                <!-- Prominent Centered/Aligned Logo -->
-                <img src="https://amvbuild.in/wp-content/uploads/2026/05/CW-Logo-2.png" alt="Classique Willowbell" class="h-20 md:h-24 mb-6 mx-auto lg:mx-0 object-contain drop-shadow-xl">
+                <img src="https://amvbuild.in/wp-content/uploads/2026/05/CW-Logo-2.png" alt="Classique Willowbell" class="h-16 md:h-24 mb-4 mx-auto lg:mx-0 object-contain drop-shadow-xl">
                 
                 <span class="inline-block py-1.5 px-4 bg-brand text-white font-bold rounded-full text-xs md:text-sm mb-4 shadow-lg uppercase tracking-wider">Hennur Road, Bengaluru</span>
                 
-                <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 drop-shadow-lg">
+                <h1 class="font-display font-extrabold text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 drop-shadow-lg">
                     Quietly Confident <br/><span class="text-brand">Luxury.</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-gray-200 mb-2 font-display font-medium max-w-lg mx-auto lg:mx-0 drop-shadow-md">
+                <p class="text-base md:text-xl text-gray-200 mb-2 font-display font-medium max-w-lg mx-auto lg:mx-0 drop-shadow-md">
                     Exclusive Residences Starting At
                 </p>
-                <div class="font-display font-extrabold text-5xl md:text-6xl text-brand drop-shadow-xl mb-6">
+                <div class="font-display font-extrabold text-4xl md:text-6xl text-brand drop-shadow-xl mb-6">
                     ₹1.25 Cr*
                 </div>
             </div>
@@ -136,8 +135,8 @@
             <!-- Lead Capture Form -->
             <div class="fade-in-up delay-200 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-brand max-w-md w-full mx-auto lg:ml-auto">
                 <div id="lead-capture-container">
-                    <h3 class="font-display font-bold text-2xl text-primary mb-1">Get in touch to lock the launch price</h3>
-                    <p class="text-sm text-gray-600 mb-6">Register to download the cost sheet instantly.</p>
+                    <h3 class="font-display font-bold text-2xl text-primary mb-1">Unlock Launch Price</h3>
+                    <p class="text-sm text-gray-600 mb-6">Contact Sales to lock offer price</p>
                     
                     <form id="willowbell-form" class="space-y-4">
                         <div>
@@ -148,7 +147,7 @@
                         </div>
                         
                         <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-green-900 text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-xl shadow-primary/30 mt-2">
-                            Get in touch to lock the launch price
+                            Get Offer
                         </button>
                         
                         <!-- RERA Trust Signal -->
@@ -176,21 +175,42 @@
         </div>
     </section>
 
-    <!-- Key Statistics Bar (Streamlined for Mobile) -->
+    <!-- Key Statistics Bar -->
     <section class="bg-primary py-6 relative z-20 shadow-lg border-b-4 border-brand">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 gap-4 text-center divide-x divide-white/10 max-w-lg mx-auto">
+        <!-- Mobile View: Just 2 columns -->
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 gap-4 text-center divide-x divide-white/10 max-w-md md:hidden">
             <div class="fade-in-up">
                 <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Total Units</p>
-                <p class="text-white font-display font-bold text-lg md:text-xl">90 Boutique Homes</p>
+                <p class="text-white font-display font-bold text-base">90 Boutique Homes</p>
             </div>
             <div class="fade-in-up delay-100">
                 <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Launch Offer</p>
-                <p class="text-white font-display font-bold text-lg md:text-xl mt-1">₹8,750 / sq.ft</p>
+                <p class="text-white font-display font-bold text-base mt-0.5">₹8,750 / sq.ft</p>
+            </div>
+        </div>
+
+        <!-- Desktop View: All 4 columns -->
+        <div class="max-w-7xl mx-auto px-6 hidden md:grid md:grid-cols-4 gap-4 text-center divide-x divide-white/10">
+            <div class="fade-in-up">
+                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Configuration</p>
+                <p class="text-white font-display font-bold text-xl">Large 2, 3 & 4 BHK</p>
+            </div>
+            <div class="fade-in-up delay-100">
+                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Total Units</p>
+                <p class="text-white font-display font-bold text-xl">90 Boutique Homes</p>
+            </div>
+            <div class="fade-in-up delay-200">
+                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Location</p>
+                <p class="text-white font-display font-bold text-base mt-0.5">Hennur Main Road<br/><span class="text-xs font-normal opacity-80">(Inside Gated Community)</span></p>
+            </div>
+            <div class="fade-in-up delay-300">
+                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Launch Offer</p>
+                <p class="text-white font-display font-bold text-xl mt-0.5">₹8,750 / sq.ft</p>
             </div>
         </div>
     </section>
 
-    <!-- The 3 Highlights (Swipeable on Mobile to reduce scroll) -->
+    <!-- The 3 Highlights (Swipeable on Mobile) -->
     <section id="highlights" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12 fade-in-up">
@@ -198,7 +218,6 @@
                 <div class="w-24 h-1.5 bg-brand mx-auto rounded-full"></div>
             </div>
             
-            <!-- Swipeable container on mobile, standard grid on desktop -->
             <div class="flex md:grid md:grid-cols-3 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-6">
                 <!-- Highlight 1 -->
                 <div class="snap-center shrink-0 w-[85vw] md:w-auto fade-in-up p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
@@ -210,7 +229,7 @@
                 <div class="snap-center shrink-0 w-[85vw] md:w-auto fade-in-up delay-100 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">📍</div>
                     <h3 class="font-display font-bold text-xl text-primary mb-3">Strategic Connectivity</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Perfectly positioned for seamless access to the Proposed Bengaluru Business Corridor (BBC) and Kempegowda International Airport. Right next to major landmarks like Bhartiya City, Manyata Tech Park phase 2, 5 mins from upcoming peripheral ring road, 20 mins from airport, 10 mins to Aerospace park etc.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Seamless connectivity via the Proposed Bengaluru Business Corridor (BBC) and the Peripheral Ring Road. Minutes from Manyata Tech Park Phase 2, Bhartiya City, Aerospace Park, and a 20-minute drive to Kempegowda International Airport.</p>
                 </div>
                 <!-- Highlight 3 -->
                 <div class="snap-center shrink-0 w-[85vw] md:w-auto fade-in-up delay-200 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
@@ -293,7 +312,7 @@
         </div>
     </section>
 
-    <!-- Location & Connectivity Map (Swipeable on mobile for location features) -->
+    <!-- Location & Connectivity Map -->
     <section id="location" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-12 items-center">
@@ -305,7 +324,7 @@
                         Situated on a 60 ft wide tree-lined boulevard in Kanakashree Layout, Hennur Road. Proximity to vital hubs, International Schools, Hospitals, High End Restaurants and Entertainment options.
                     </p>
                     
-                    <!-- Swipeable cards on mobile to reduce scroll depth -->
+                    <!-- Swipeable cards on mobile -->
                     <div class="flex md:grid md:grid-cols-1 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 pb-2">
                         <div class="snap-center shrink-0 w-[75vw] md:w-auto bg-surface p-4 rounded-xl border border-gray-100 flex items-center">
                             <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand flex-shrink-0">✈️</div> 
@@ -336,7 +355,7 @@
         </div>
     </section>
 
-    <!-- About AMV Ventures & Completed Projects Section -->
+    <!-- About AMV Build & Completed Projects Section (With Image Thumbnails & Swipeable on Mobile) -->
     <section id="about" class="py-16 md:py-24 bg-surface border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12 fade-in-up">
@@ -347,22 +366,55 @@
                 </p>
             </div>
 
-            <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 max-w-4xl mx-auto">
-                <h3 class="font-display font-bold text-xl text-primary mb-4 text-center">Notable Completed Projects in Bengaluru</h3>
-                <p class="text-sm text-gray-500 text-center mb-6">Building trust through landmark residential communities across the city:</p>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                    <div class="p-4 bg-surface rounded-xl border border-gray-100">
-                        <p class="font-display font-bold text-primary">Classique Windchimes</p>
-                        <p class="text-xs text-gray-500 mt-1">Completed 2025</p>
+            <div class="max-w-5xl mx-auto">
+                <h3 class="font-display font-bold text-xl text-primary mb-2 text-center">Notable Completed Projects in Bengaluru</h3>
+                <p class="text-sm text-gray-500 text-center mb-8">Building trust through landmark residential communities across the city:</p>
+                
+                <!-- Swipeable on mobile, grid on desktop -->
+                <div class="flex md:grid md:grid-cols-3 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-4">
+                    
+                    <!-- Project 1 -->
+                    <div class="snap-center shrink-0 w-[80vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-md flex flex-col group hover:border-brand/40 transition duration-300">
+                        <div class="overflow-hidden h-44">
+                            <img src="https://amvbuild.in/wp-content/uploads/2025/08/Classique-Windchimes-Yelahanka-Bangalore.webp" alt="Classique Windchimes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <p class="font-display font-bold text-primary text-base">Classique Windchimes</p>
+                                <p class="text-xs text-gray-500 mt-1">Yelahanka, Bengaluru</p>
+                            </div>
+                            <span class="inline-block mt-4 py-1 px-3 bg-brand/10 text-brand font-semibold rounded-full text-xs self-center">Completed 2025</span>
+                        </div>
                     </div>
-                    <div class="p-4 bg-surface rounded-xl border border-gray-100">
-                        <p class="font-display font-bold text-primary">Classique Woodsville</p>
-                        <p class="text-xs text-gray-500 mt-1">Completed 2023</p>
+
+                    <!-- Project 2 -->
+                    <div class="snap-center shrink-0 w-[80vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-md flex flex-col group hover:border-brand/40 transition duration-300">
+                        <div class="overflow-hidden h-44">
+                            <img src="https://amvbuild.in/wp-content/uploads/2023/09/Classique-Woodsville.jpeg" alt="Classique Woodsville" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <p class="font-display font-bold text-primary text-base">Classique Woodsville</p>
+                                <p class="text-xs text-gray-500 mt-1">Bengaluru</p>
+                            </div>
+                            <span class="inline-block mt-4 py-1 px-3 bg-brand/10 text-brand font-semibold rounded-full text-xs self-center">Completed 2023</span>
+                        </div>
                     </div>
-                    <div class="p-4 bg-surface rounded-xl border border-gray-100">
-                        <p class="font-display font-bold text-primary">Classique Temple Tree</p>
-                        <p class="text-xs text-gray-500 mt-1">Yelahanka (2019)</p>
+
+                    <!-- Project 3 -->
+                    <div class="snap-center shrink-0 w-[80vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-md flex flex-col group hover:border-brand/40 transition duration-300">
+                        <div class="overflow-hidden h-44">
+                            <img src="https://mpb.co.in/mayflower/images/mayflower-slide-img.jpg" alt="Classique Mayflower" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <p class="font-display font-bold text-primary text-base">Classique Mayflower</p>
+                                <p class="text-xs text-gray-500 mt-1">Bengaluru</p>
+                            </div>
+                            <span class="inline-block mt-4 py-1 px-3 bg-brand/10 text-brand font-semibold rounded-full text-xs self-center">Completed 2023</span>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -380,7 +432,6 @@
                 
                 <div class="mt-4">
                     <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-2">Sales Enquiries</p>
-                    <!-- Stacked clean layout for mobile to prevent wrapping weirdness -->
                     <div class="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-2 md:space-y-0 md:space-x-3 text-white">
                         <a href="tel:+919972710552" class="hover:text-brand transition font-semibold text-base">+91 99727 10552</a>
                         <span class="hidden md:inline text-gray-600">|</span>
