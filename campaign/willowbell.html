@@ -746,23 +746,21 @@
         function handleLeadSubmission(e, formType) {
             e.preventDefault();
             
-            let nameInput, phoneInput, btn;
+            let nameInput, phoneInput;
             
             if(formType === 'hero') {
                 nameInput = document.getElementById('lead-name');
                 phoneInput = document.getElementById('lead-phone');
-                btn = document.getElementById('submit-btn');
             } else if(formType === 'modal') {
                 nameInput = document.getElementById('modal-name');
                 phoneInput = document.getElementById('modal-phone');
-                btn = document.getElementById('modal-submit-btn');
             }
 
-            const originalBtnText = btn.innerText;
-            btn.innerText = "Processing...";
-            btn.disabled = true;
-            btn.classList.add('opacity-75', 'cursor-not-allowed');
+            // Save state immediately
+            sessionStorage.setItem('lead_captured', 'true');
+            sessionStorage.setItem('user_name', nameInput.value);
 
+            // Fire-and-forget background sync (Zero user delay)
             const payload = {
                 name: nameInput.value,
                 whatsapp: phoneInput.value,
@@ -779,39 +777,28 @@
                 mode: 'no-cors', 
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
-            })
-            .then(() => {
-                sessionStorage.setItem('lead_captured', 'true');
-                sessionStorage.setItem('user_name', nameInput.value);
+            }).catch(error => console.error("Background sync error:", error));
 
-                // Unlock the floor plans in both scenarios
-                document.getElementById('plan-gate-container').classList.remove('blur-gate');
-                document.getElementById('plan-overlay').classList.add('hidden-state');
+            // Instantly unlock the floor plans and UI
+            document.getElementById('plan-gate-container').classList.remove('blur-gate');
+            document.getElementById('plan-overlay').classList.add('hidden-state');
 
-                if(formType === 'hero') {
-                    document.getElementById('lead-capture-container').classList.add('hidden-state');
-                    document.getElementById('thank-you-container').classList.remove('hidden-state');
-                } else if(formType === 'modal') {
-                    closeModal();
-                    
-                    if (pendingActionUrl) {
-                        executeContactAction(pendingActionType, pendingActionUrl);
-                        pendingActionUrl = "";
-                        pendingActionType = "";
-                    } else {
-                        setTimeout(() => {
-                            document.getElementById('plans').scrollIntoView({behavior: 'smooth', block: 'center'});
-                        }, 300);
-                    }
+            if(formType === 'hero') {
+                document.getElementById('lead-capture-container').classList.add('hidden-state');
+                document.getElementById('thank-you-container').classList.remove('hidden-state');
+            } else if(formType === 'modal') {
+                closeModal();
+                
+                if (pendingActionUrl) {
+                    executeContactAction(pendingActionType, pendingActionUrl);
+                    pendingActionUrl = "";
+                    pendingActionType = "";
+                } else {
+                    setTimeout(() => {
+                        document.getElementById('plans').scrollIntoView({behavior: 'smooth', block: 'center'});
+                    }, 300);
                 }
-            })
-            .catch(error => {
-                console.error("Error submitting lead:", error);
-                alert("Something went wrong. Please try again or contact us directly on WhatsApp.");
-                btn.innerText = originalBtnText;
-                btn.disabled = false;
-                btn.classList.remove('opacity-75', 'cursor-not-allowed');
-            });
+            }
         }
 
         document.getElementById('willowbell-form').addEventListener('submit', (e) => handleLeadSubmission(e, 'hero'));
