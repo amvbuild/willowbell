@@ -35,7 +35,7 @@
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/apple-touch-icon.png">
 
-    <!-- Brand Typography (Optimized with display=swap) -->
+    <!-- Brand Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
@@ -77,7 +77,7 @@
 </head>
 <body class="font-body text-gray-800 antialiased bg-surface overflow-x-hidden">
 
-    <!-- Floating WhatsApp Widget (Gated with Lead Capture) -->
+    <!-- Floating WhatsApp Widget -->
     <a href="https://wa.me/918792937552?text=Hi,%20I%20am%20interested%20in%20Classique%20Willowbell." onclick="handleContactClick(event, 'whatsapp')" aria-label="Contact Sales via WhatsApp" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition duration-300 flex items-center justify-center animate-bounce cursor-pointer">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.124.553 4.195 1.604 6.015L.233 23.551l5.658-1.483c1.745.952 3.708 1.455 5.736 1.455 6.648 0 12.031-5.383 12.031-12.031S18.679 0 12.031 0zm3.859 17.25c-.173.488-.997.943-1.41.986-.414.043-.923.189-3.053-.695-2.553-1.06-4.208-3.666-4.338-3.839-.13-.173-1.038-1.381-1.038-2.637 0-1.256.649-1.884.887-2.123.238-.238.52-.298.692-.298.173 0 .346.008.498.016.166.009.388-.063.593.433.216.519.735 1.794.8 1.924.065.13.108.282.022.455-.086.173-.13.282-.26.434-.13.151-.274.332-.39.454-.13.13-.269.273-.119.533.151.26 .67 1.108 1.442 1.799.998.892 1.83 1.171 2.089 1.298.259.127.411.105.563-.062.152-.167.649-.757.822-1.017.173-.26.346-.217.584-.13.238.086 1.514.714 1.774.844.26.13.433.195.498.303.065.108.065.627-.108 1.115z"/></svg>
     </a>
@@ -86,13 +86,11 @@
     <header class="w-full bg-white/95 backdrop-blur-sm shadow-sm py-3 px-6 fixed top-0 z-50 border-b border-primary/20">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
-            <!-- Left: Contact CTA (Gated) -->
             <a href="tel:+918792937552" onclick="handleContactClick(event, 'phone')" class="flex items-center font-display font-bold text-primary hover:text-brand transition text-sm md:text-base flex-shrink-0 cursor-pointer">
                 <svg class="w-5 h-5 mr-1 md:mr-2 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 <span>+91 87929 37552</span>
             </a>
 
-            <!-- Center: Anchor Nav (Desktop Only) -->
             <nav class="hidden lg:flex space-x-8 font-display font-bold text-sm text-primary mx-auto">
                 <a href="#highlights" class="hover:text-brand transition">Highlights</a>
                 <a href="#pricing" class="hover:text-brand transition">Pricing & Plans</a>
@@ -101,7 +99,6 @@
                 <a href="#about" class="hover:text-brand transition">About Us</a>
             </nav>
             
-            <!-- Right: AMV Logo -->
             <a href="#" class="flex-shrink-0">
                 <img src="assets/amv-logo.webp" alt="AMV" class="h-8 md:h-12 object-contain mix-blend-multiply">
             </a>
@@ -109,7 +106,7 @@
         </div>
     </header>
 
-    <!-- Modal for Gated Content / Quick Contact Capture -->
+    <!-- Modal for Gated Content -->
     <div id="unlock-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
         <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
         <div class="relative bg-white w-full max-w-md rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-brand fade-in-up">
@@ -117,7 +114,7 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <h3 id="modal-title" class="font-display font-bold text-2xl text-primary mb-2">Unlock Floor Plans</h3>
-            <p id="modal-desc" class="text-sm text-gray-500 mb-6">Enter your details to instantly view the master plan and layouts.</p>
+            <p id="modal-desc" class="text-sm text-gray-600 mb-6">Enter your details to instantly view the master plan and layouts.</p>
             
             <form id="modal-form" class="space-y-4">
                 <div>
@@ -146,18 +143,14 @@
     <!-- Hero Section -->
     <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden">
         <div class="absolute inset-0 z-0 overflow-hidden">
-            <!-- Mobile Background Image (Prioritized for LCP) -->
             <img src="assets/Classique-Willowbell.webp" alt="Classique Willowbell" loading="eager" fetchpriority="high" decoding="sync" class="w-full h-full object-cover object-center hero-img-anim block md:hidden">
-            <!-- Desktop Background Image (Prioritized for LCP) -->
             <img src="assets/Cam_Balcony.webp" alt="Classique Willowbell Balcony" loading="eager" fetchpriority="high" decoding="sync" class="w-full h-full object-cover object-center hero-img-anim hidden md:block">
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20 lg:to-transparent"></div>
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
-            <!-- Hero Copy -->
             <div class="fade-in-up delay-100 text-center lg:text-left">
-                <!-- Classique Willowbell Prominent Logo -->
                 <img src="assets/CW-Logo-2.webp" alt="Classique Willowbell" class="h-16 md:h-24 mb-6 mx-auto lg:mx-0 object-contain drop-shadow-xl">
                 
                 <h1 class="font-display font-extrabold text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 drop-shadow-lg text-center lg:text-left">
@@ -172,7 +165,6 @@
                 </div>
             </div>
 
-            <!-- Lead Capture Form -->
             <div class="fade-in-up delay-200 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-brand max-w-md w-full mx-auto lg:ml-auto">
                 <div id="lead-capture-container">
                     <h3 class="font-display font-bold text-2xl text-primary mb-1">Unlock Launch Price</h3>
@@ -190,15 +182,13 @@
                             Get Offer
                         </button>
                         
-                        <!-- RERA Trust Signal -->
                         <div class="text-center mt-4 border-t border-gray-200 pt-3">
-                            <p class="text-xs text-gray-500 font-semibold">RERA Registered Project</p>
-                            <p class="text-[10px] text-gray-400 font-mono mt-1">PRM/KA/RERA/1251/446/PR/220526/008672</p>
+                            <p class="text-xs text-gray-600 font-semibold">RERA Registered Project</p>
+                            <p class="text-[10px] text-gray-500 font-mono mt-1">PRM/KA/RERA/1251/446/PR/220526/008672</p>
                         </div>
                     </form>
                 </div>
 
-                <!-- Thank You State -->
                 <div id="thank-you-container" class="hidden-state text-center py-4">
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 mb-3">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
@@ -217,34 +207,32 @@
 
     <!-- Key Statistics Bar -->
     <section class="bg-primary py-6 relative z-20 shadow-lg border-b-4 border-brand">
-        <!-- Mobile View: Just 2 columns -->
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 gap-4 text-center divide-x divide-white/10 max-w-md md:hidden">
             <div class="fade-in-up">
-                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Total Units</p>
+                <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-1">Total Units</p>
                 <p class="text-white font-display font-bold text-base">90 Boutique Homes</p>
             </div>
             <div class="fade-in-up delay-100">
-                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Launch Offer</p>
+                <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-1">Launch Offer</p>
                 <p class="text-white font-display font-bold text-base mt-0.5">₹8,950 / sq.ft</p>
             </div>
         </div>
 
-        <!-- Desktop View: All 4 columns -->
         <div class="max-w-7xl mx-auto px-6 hidden md:grid md:grid-cols-4 gap-4 text-center divide-x divide-white/10">
             <div class="fade-in-up">
-                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Configuration</p>
+                <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-1">Configuration</p>
                 <p class="text-white font-display font-bold text-xl">Large 2, 3 & 4 BHK</p>
             </div>
             <div class="fade-in-up delay-100">
-                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Total Units</p>
+                <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-1">Total Units</p>
                 <p class="text-white font-display font-bold text-xl">90 Boutique Homes</p>
             </div>
             <div class="fade-in-up delay-200">
-                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Location</p>
-                <p class="text-white font-display font-bold text-base mt-0.5">Hennur Main Road<br/><span class="text-xs font-normal opacity-80">(Inside Gated Community)</span></p>
+                <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-1">Location</p>
+                <p class="text-white font-display font-bold text-base mt-0.5">Hennur Main Road<br/><span class="text-xs font-normal opacity-90">(Inside Gated Community)</span></p>
             </div>
             <div class="fade-in-up delay-300">
-                <p class="text-brand/80 font-semibold text-xs uppercase tracking-wider mb-1">Launch Offer</p>
+                <p class="text-brand font-semibold text-xs uppercase tracking-wider mb-1">Launch Offer</p>
                 <p class="text-white font-display font-bold text-xl mt-0.5">₹8,950 / sq.ft</p>
             </div>
         </div>
@@ -259,19 +247,16 @@
             </div>
             
             <div class="flex md:grid md:grid-cols-3 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-6 px-1">
-                <!-- Highlight 1 -->
                 <div class="snap-start shrink-0 w-[78vw] md:w-auto fade-in-up p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">🏢</div>
                     <h3 class="font-display font-bold text-xl text-primary mb-3">Exclusive Low-Density Living</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">90 boutique large spaced apartments inside a gated serene community ensuring absolute privacy, abundant natural light, and a quietly confident community.</p>
                 </div>
-                <!-- Highlight 2 -->
                 <div class="snap-start shrink-0 w-[78vw] md:w-auto fade-in-up delay-100 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">📍</div>
                     <h3 class="font-display font-bold text-xl text-primary mb-3">Strategic Connectivity</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Seamless connectivity via the Proposed Bengaluru Business Corridor (BBC) and the Peripheral Ring Road. Minutes from Manyata Tech Park Phase 2, Bhartiya City, Aerospace Park, and a 20-minute drive to Kempegowda International Airport.</p>
                 </div>
-                <!-- Highlight 3 -->
                 <div class="snap-start shrink-0 w-[78vw] md:w-auto fade-in-up delay-200 p-8 bg-surface rounded-2xl border border-gray-100 hover:shadow-xl hover:border-brand/30 transition duration-300 text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-3xl mb-6">🏊‍♂️</div>
                     <h3 class="font-display font-bold text-xl text-primary mb-3">Resort-Style Amenities</h3>
@@ -290,63 +275,58 @@
                 <p class="text-gray-600 max-w-xl mx-auto">Explore the configurations, sizes, and unlock detailed layouts.</p>
             </div>
 
-            <!-- Grid: Left is Pricing Cards, Right is Gated Floor Plan -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
-                <!-- Pricing Breakdown Cards (Left Column - 5 cols) -->
+                <!-- Pricing Breakdown Cards (Fixed headings hierarchy to h3) -->
                 <div class="lg:col-span-5 space-y-4 fade-in-up">
                     <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
                         <div>
-                            <h4 class="font-display font-bold text-lg md:text-xl text-primary">2 BHK</h4>
-                            <p class="text-xs md:text-sm text-gray-500 mt-0.5">1,330 sq. ft.</p>
+                            <h3 class="font-display font-bold text-lg md:text-xl text-primary">2 BHK</h3>
+                            <p class="text-xs md:text-sm text-gray-600 mt-0.5">1,330 sq. ft.</p>
                         </div>
                         <div class="text-right">
-                            <p class="text-[10px] md:text-xs text-gray-400">Starting From</p>
+                            <p class="text-[10px] md:text-xs text-gray-600">Starting From</p>
                             <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹1.25 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
 
                     <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
                         <div>
-                            <h4 class="font-display font-bold text-lg md:text-xl text-primary">3 BHK</h4>
-                            <p class="text-xs md:text-sm text-gray-500 mt-0.5">1,900 sq. ft.</p>
+                            <h3 class="font-display font-bold text-lg md:text-xl text-primary">3 BHK</h3>
+                            <p class="text-xs md:text-sm text-gray-600 mt-0.5">1,900 sq. ft.</p>
                         </div>
                         <div class="text-right">
-                            <p class="text-[10px] md:text-xs text-gray-400">Starting From</p>
+                            <p class="text-[10px] md:text-xs text-gray-600">Starting From</p>
                             <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹1.60 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
 
                     <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
                         <div>
-                            <h4 class="font-display font-bold text-lg md:text-xl text-primary">4 BHK</h4>
-                            <p class="text-xs md:text-sm text-gray-500 mt-0.5">2,700 sq. ft.</p>
+                            <h3 class="font-display font-bold text-lg md:text-xl text-primary">4 BHK</h3>
+                            <p class="text-xs md:text-sm text-gray-600 mt-0.5">2,700 sq. ft.</p>
                         </div>
                         <div class="text-right">
-                            <p class="text-[10px] md:text-xs text-gray-400">Starting From</p>
+                            <p class="text-[10px] md:text-xs text-gray-600">Starting From</p>
                             <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹2.40 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Gated Floor Plan Viewer (Right Column - 7 cols) -->
+                <!-- Gated Floor Plan Viewer -->
                 <div class="lg:col-span-7 fade-in-up delay-100" id="plans">
                     <div class="bg-white p-4 md:p-6 rounded-2xl shadow-lg border-2 border-gray-100 relative overflow-hidden">
                         
-                        <!-- Tab Visuals -->
                         <div class="flex flex-wrap justify-center gap-2 mb-6 bg-surface py-3 rounded-xl border border-gray-200">
                             <button onclick="switchPlanTab('master')" id="tab-master" class="px-4 py-1.5 bg-primary text-white font-bold rounded-full text-xs shadow-sm transition cursor-pointer">Master Plan</button>
-                            <button onclick="switchPlanTab('2bhk')" id="tab-2bhk" class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs transition cursor-pointer">2 BHK</button>
-                            <button onclick="switchPlanTab('3bhk')" id="tab-3bhk" class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs transition cursor-pointer">3 BHK</button>
-                            <button onclick="switchPlanTab('4bhk')" id="tab-4bhk" class="px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs transition cursor-pointer">4 BHK</button>
+                            <button onclick="switchPlanTab('2bhk')" id="tab-2bhk" class="px-4 py-1.5 bg-white text-gray-600 font-bold rounded-full text-xs transition cursor-pointer">2 BHK</button>
+                            <button onclick="switchPlanTab('3bhk')" id="tab-3bhk" class="px-4 py-1.5 bg-white text-gray-600 font-bold rounded-full text-xs transition cursor-pointer">3 BHK</button>
+                            <button onclick="switchPlanTab('4bhk')" id="tab-4bhk" class="px-4 py-1.5 bg-white text-gray-600 font-bold rounded-full text-xs transition cursor-pointer">4 BHK</button>
                         </div>
 
-                        <!-- Content Container -->
                         <div class="relative rounded-xl overflow-hidden">
-                            <!-- Gate Container (Blurs when locked) -->
                             <div id="plan-gate-container" class="relative blur-gate">
                                 
-                                <!-- Master Plan Tab Content -->
                                 <div id="content-master" class="plan-content text-center">
                                     <div class="relative group cursor-pointer inline-block w-full" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/campaign/willowbell-fp-master.webp')">
                                         <img src="https://raw.githubusercontent.com/amvbuild/willowbell/main/campaign/willowbell-fp-master.webp" alt="Master Plan" loading="lazy" decoding="async" class="w-full h-72 md:h-96 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
@@ -359,7 +339,6 @@
                                     </div>
                                 </div>
 
-                                <!-- 2 BHK Tab Content -->
                                 <div id="content-2bhk" class="plan-content hidden-state">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/campaign/willowbell-fp-2bhk.webp')">
@@ -380,7 +359,6 @@
                                     </div>
                                 </div>
 
-                                <!-- 3 BHK Tab Content -->
                                 <div id="content-3bhk" class="plan-content hidden-state">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/campaign/willowbell-fp-3bhk.webp')">
@@ -401,7 +379,6 @@
                                     </div>
                                 </div>
 
-                                <!-- 4 BHK Tab Content -->
                                 <div id="content-4bhk" class="plan-content hidden-state">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://raw.githubusercontent.com/amvbuild/willowbell/main/campaign/willowbell-fp-4bhk.webp')">
@@ -424,13 +401,12 @@
 
                             </div>
                             
-                            <!-- Lock Overlay -->
                             <div id="plan-overlay" class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white/40 backdrop-blur-sm">
                                 <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-xs w-[90%] border border-gray-100">
                                     <div class="w-12 h-12 bg-primary text-brand rounded-full flex items-center justify-center mx-auto text-2xl mb-4 shadow-inner">
                                         🔒
                                     </div>
-                                    <p class="text-xs text-gray-500 mb-4">Unlock instant access to master plans and layouts.</p>
+                                    <p class="text-xs text-gray-600 mb-4">Unlock instant access to master plans and layouts.</p>
                                     <button onclick="openModal()" class="w-full bg-brand text-white font-bold py-3 rounded-lg hover:bg-brandHover transition shadow-md text-sm cursor-pointer">
                                         Unlock Plans Now
                                     </button>
@@ -445,7 +421,7 @@
         </div>
     </section>
 
-    <!-- Swipeable Photo Gallery with Desktop Arrows -->
+    <!-- Swipeable Photo Gallery -->
     <section id="gallery" class="py-16 bg-primary overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-10 fade-in-up flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
             <div>
@@ -453,7 +429,6 @@
                 <div class="w-24 h-1.5 bg-brand rounded-full mb-4"></div>
                 <p class="text-gray-300">Explore the meticulously designed interiors and amenities.</p>
             </div>
-            <!-- Desktop Scroll Arrows -->
             <div class="hidden md:flex space-x-3">
                 <button onclick="scrollGallery(-1)" class="w-12 h-12 rounded-full bg-white/10 hover:bg-brand text-white flex items-center justify-center transition duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -464,9 +439,7 @@
             </div>
         </div>
         
-        <!-- The Gallery Container -->
         <div id="gallery-container" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 px-6 pb-8 max-w-7xl mx-auto cursor-grab active:cursor-grabbing fade-in-up delay-100">
-            <!-- Items (Lazy Loaded & Asynchronously Decoded) -->
             <div class="snap-start shrink-0 w-[78vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
                 <img src="assets/Classique-Willowbell.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Exterior">
             </div>
@@ -492,7 +465,7 @@
         </div>
     </section>
 
-    <!-- Location & Connectivity Map -->
+    <!-- Location & Connectivity Map (With Click-to-Load Facade) -->
     <section id="location" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-12 items-center">
@@ -504,7 +477,6 @@
                         Situated on a 60 ft wide tree-lined boulevard in Kanakashree Layout, Hennur Road. Proximity to vital hubs, International Schools, Hospitals, High End Restaurants and Entertainment options.
                     </p>
                     
-                    <!-- Swipeable cards on mobile with peek-a-boo -->
                     <div class="flex md:grid md:grid-cols-1 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 pb-2 px-1">
                         <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-surface p-4 rounded-xl border border-gray-100 flex items-center">
                             <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center mr-4 text-brand flex-shrink-0">✈️</div> 
@@ -525,9 +497,21 @@
                     </div>
                 </div>
 
+                <!-- Click-to-Load Map Container -->
                 <div class="w-full lg:w-2/3 fade-in-up delay-100">
-                    <div class="w-full h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1956608960477!2d77.65121541097993!3d13.086782812288588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1b0038d33927%3A0xe2068b0307fa24cf!2sClassique%20Willowbell%20Apartments!5e0!3m2!1sen!2sin!4v1787826994420!5m2!1sen!2sin" title="Classique Willowbell Location Map on Hennur Main Road" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <div id="map-container" class="w-full h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 relative bg-gray-900 flex flex-col items-center justify-center cursor-pointer group" onclick="loadMap()">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition duration-500" style="background-image: url('assets/Classique-Willowbell.webp');"></div>
+                        <div class="absolute inset-0 bg-primary/70"></div>
+                        <div class="relative z-10 text-center p-6 text-white">
+                            <div class="w-14 h-14 bg-brand text-primary rounded-full flex items-center justify-center mx-auto text-2xl mb-3 shadow-lg group-hover:scale-110 transition">
+                                📍
+                            </div>
+                            <h3 class="font-display font-bold text-xl mb-1">Classique Willowbell Location Map</h3>
+                            <p class="text-xs text-gray-300 mb-4">Hennur Main Road, Bengaluru</p>
+                            <span class="inline-block bg-brand hover:bg-brandHover text-primary font-bold text-xs px-5 py-2.5 rounded-lg shadow-md transition">
+                                Load Interactive Map
+                            </span>
+                        </div>
                     </div>
                 </div>
 
@@ -535,7 +519,7 @@
         </div>
     </section>
 
-    <!-- About AMV & Completed Projects Section (5 Projects with Thumbnails) -->
+    <!-- About AMV & Completed Projects Section -->
     <section id="about" class="py-16 md:py-24 bg-surface border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12 fade-in-up">
@@ -548,12 +532,10 @@
 
             <div class="max-w-6xl mx-auto">
                 <h3 class="font-display font-bold text-xl text-primary mb-2 text-center">Notable Completed Projects</h3>
-                <p class="text-sm text-gray-500 text-center mb-8">Building trust through landmark residential communities:</p>
+                <p class="text-sm text-gray-600 text-center mb-8">Building trust through landmark residential communities:</p>
                 
-                <!-- Swipeable with peek-a-boo on mobile, multi-column grid on desktop -->
                 <div class="flex md:grid md:grid-cols-3 lg:grid-cols-5 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-5 pb-4 px-1">
                     
-                    <!-- Project 1 -->
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
                             <img src="assets/Classique-Windchimes-Yelahanka-Bangalore.webp" alt="Classique Windchimes" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -561,13 +543,12 @@
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
                                 <p class="font-display font-bold text-primary text-sm">Classique Windchimes</p>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Bengaluru</p>
+                                <p class="text-[11px] text-gray-600 mt-0.5">Bengaluru</p>
                             </div>
-                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/10 text-brand font-semibold rounded-full text-[10px] self-center">Completed 2025</span>
+                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/20 text-primary font-semibold rounded-full text-[10px] self-center">Completed 2025</span>
                         </div>
                     </div>
 
-                    <!-- Project 2 -->
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
                             <img src="assets/Classique-Woodsville.webp" alt="Classique Woodsville" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -575,13 +556,12 @@
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
                                 <p class="font-display font-bold text-primary text-sm">Classique Woodsville</p>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Bengaluru</p>
+                                <p class="text-[11px] text-gray-600 mt-0.5">Bengaluru</p>
                             </div>
-                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/10 text-brand font-semibold rounded-full text-[10px] self-center">Completed 2023</span>
+                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/20 text-primary font-semibold rounded-full text-[10px] self-center">Completed 2023</span>
                         </div>
                     </div>
 
-                    <!-- Project 3 -->
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
                             <img src="https://amvbuild.in/wp-content/uploads/2022/10/Classique_Ruby.jpg" alt="Classique Ruby" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -589,13 +569,12 @@
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
                                 <p class="font-display font-bold text-primary text-sm">Classique Ruby</p>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Mangalore</p>
+                                <p class="text-[11px] text-gray-600 mt-0.5">Mangalore</p>
                             </div>
-                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/10 text-brand font-semibold rounded-full text-[10px] self-center">Completed 2018</span>
+                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/20 text-primary font-semibold rounded-full text-[10px] self-center">Completed 2018</span>
                         </div>
                     </div>
 
-                    <!-- Project 4 -->
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
                             <img src="assets/grid-img-pearl.webp" alt="Classique Pearl" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -603,13 +582,12 @@
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
                                 <p class="font-display font-bold text-primary text-sm">Classique Pearl</p>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Mangalore</p>
+                                <p class="text-[11px] text-gray-600 mt-0.5">Mangalore</p>
                             </div>
-                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/10 text-brand font-semibold rounded-full text-[10px] self-center">Completed 2015</span>
+                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/20 text-primary font-semibold rounded-full text-[10px] self-center">Completed 2015</span>
                         </div>
                     </div>
 
-                    <!-- Project 5 -->
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
                             <img src="https://amvbuild.in/wp-content/uploads/2022/10/Classique_Sapphire-amv.jpg" alt="Classique Sapphire" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -617,9 +595,9 @@
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
                                 <p class="font-display font-bold text-primary text-sm">Classique Sapphire</p>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Mangalore</p>
+                                <p class="text-[11px] text-gray-600 mt-0.5">Mangalore</p>
                             </div>
-                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/10 text-brand font-semibold rounded-full text-[10px] self-center">Completed 2012</span>
+                            <span class="inline-block mt-3 py-0.5 px-2.5 bg-brand/20 text-primary font-semibold rounded-full text-[10px] self-center">Completed 2012</span>
                         </div>
                     </div>
 
@@ -629,10 +607,9 @@
     </section>
 
     <!-- Comprehensive Legal Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 border-t-4 border-brand">
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-brand">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-center md:text-left">
             
-            <!-- Left Column: Company Info -->
             <div>
                 <img src="assets/CW-Logo-2.webp" alt="Classique Willowbell" class="h-10 mb-4 mx-auto md:mx-0 object-contain">
                 <p class="mb-5 text-gray-300">2, 3 & 4 BHK Premium Homes at Hennur Road, Bengaluru.<br/>
@@ -653,8 +630,7 @@
                 </div>
             </div>
             
-            <!-- Right Column: Disclaimers -->
-            <div class="flex flex-col justify-end text-xs text-gray-500 leading-relaxed md:text-right pt-6 md:pt-0">
+            <div class="flex flex-col justify-end text-xs text-gray-400 leading-relaxed md:text-right pt-6 md:pt-0">
                 <p class="mb-4">
                     All images are artistic representations. Areas, specifications and amenities are indicative and subject to approvals and change. This page is an invitation to enquire and does not constitute an offer or contract.
                 </p>
@@ -668,7 +644,7 @@
         </div>
     </footer>
 
-    <!-- Logic for Form Submission, Modals, Zoom, & WhatsApp/Call Gating -->
+    <!-- Logic for Form Submission, Modals, Zoom, & Map Facade -->
     <script>
         const unlockModal = document.getElementById('unlock-modal');
         function openModal() { unlockModal.classList.remove('hidden'); }
@@ -698,7 +674,7 @@
                     btn.className = "px-4 py-1.5 bg-primary text-white font-bold rounded-full text-xs shadow-sm transition cursor-pointer";
                     content.classList.remove('hidden-state');
                 } else {
-                    btn.className = "px-4 py-1.5 bg-white text-gray-500 font-bold rounded-full text-xs transition cursor-pointer";
+                    btn.className = "px-4 py-1.5 bg-white text-gray-600 font-bold rounded-full text-xs transition cursor-pointer";
                     content.classList.add('hidden-state');
                 }
             });
@@ -711,12 +687,17 @@
             container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
+        // Dynamic Click-to-Load Map Facade Loader
+        function loadMap() {
+            const container = document.getElementById('map-container');
+            container.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1956608960477!2d77.65121541097993!3d13.086782812288588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1b0038d33927%3A0xe2068b0307fa24cf!2sClassique%20Willowbell%20Apartments!5e0!3m2!1sen!2sin!4v1787826994420!5m2!1sen!2sin" title="Classique Willowbell Location Map on Hennur Main Road" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+        }
+
         const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwkqKFIiVtpVUI_5BbHOFc5bdefL_gJ8LRYDQ4d0_O9Ol6cQy-jE-p3-VgqH4IGPZ8Q7A/exec"; 
 
         let pendingActionUrl = "";
         let pendingActionType = "";
 
-        // WhatsApp & Phone Call Interception Strategy
         function handleContactClick(event, type) {
             event.preventDefault();
             const targetUrl = event.currentTarget.getAttribute('href');
@@ -759,11 +740,9 @@
                 phoneInput = document.getElementById('modal-phone');
             }
 
-            // Save state immediately
             sessionStorage.setItem('lead_captured', 'true');
             sessionStorage.setItem('user_name', nameInput.value);
 
-            // Fire-and-forget background sync (Zero user delay)
             const payload = {
                 name: nameInput.value,
                 whatsapp: phoneInput.value,
@@ -782,7 +761,6 @@
                 body: JSON.stringify(payload)
             }).catch(error => console.error("Background sync error:", error));
 
-            // Instantly unlock the floor plans and UI
             document.getElementById('plan-gate-container').classList.remove('blur-gate');
             document.getElementById('plan-overlay').classList.add('hidden-state');
 
