@@ -277,7 +277,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
-                <!-- Pricing Breakdown Cards (Fixed headings hierarchy to h3) -->
+                <!-- Pricing Breakdown Cards -->
                 <div class="lg:col-span-5 space-y-4 fade-in-up">
                     <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
                         <div>
@@ -646,6 +646,16 @@
 
     <!-- Logic for Form Submission, Modals, Zoom, & Map Facade -->
     <script>
+        // Check session storage on page load to keep unlocked state persistent
+        document.addEventListener("DOMContentLoaded", function() {
+            if (sessionStorage.getItem('lead_captured') === 'true') {
+                document.getElementById('plan-gate-container').classList.remove('blur-gate');
+                document.getElementById('plan-overlay').classList.add('hidden-state');
+                document.getElementById('lead-capture-container').classList.add('hidden-state');
+                document.getElementById('thank-you-container').classList.remove('hidden-state');
+            }
+        });
+
         const unlockModal = document.getElementById('unlock-modal');
         function openModal() { unlockModal.classList.remove('hidden'); }
         function closeModal() { unlockModal.classList.add('hidden'); }
@@ -761,23 +771,21 @@
                 body: JSON.stringify(payload)
             }).catch(error => console.error("Background sync error:", error));
 
+            // UNIVERSAL UNLOCK: Unlock floor plans for ANY form submission
             document.getElementById('plan-gate-container').classList.remove('blur-gate');
             document.getElementById('plan-overlay').classList.add('hidden-state');
 
-            if(formType === 'hero') {
-                document.getElementById('lead-capture-container').classList.add('hidden-state');
-                document.getElementById('thank-you-container').classList.remove('hidden-state');
-            } else if(formType === 'modal') {
+            // UNIVERSAL UI UPDATE: Hide lead capture and show Thank You state globally
+            document.getElementById('lead-capture-container').classList.add('hidden-state');
+            document.getElementById('thank-you-container').classList.remove('hidden-state');
+
+            if(formType === 'modal') {
                 closeModal();
                 
                 if (pendingActionUrl) {
                     executeContactAction(pendingActionType, pendingActionUrl);
                     pendingActionUrl = "";
                     pendingActionType = "";
-                } else {
-                    setTimeout(() => {
-                        document.getElementById('plans').scrollIntoView({behavior: 'smooth', block: 'center'});
-                    }, 300);
                 }
             }
         }
