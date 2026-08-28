@@ -5,24 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classique Willowbell | AMV</title>
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PWBGXLDT');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MDBPM8V2CF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-MDBPM8V2CF');
-    </script>
-    
     <!-- SEO Meta Description -->
     <meta name="description" content="Explore Classique Willowbell luxury 2, 3 & 4 BHK boutique homes on Hennur Main Road, Bengaluru starting at ₹1.25 Cr*. Discover master plans and launch offers.">
     
@@ -95,7 +77,7 @@
 </head>
 <body class="font-body text-gray-800 antialiased bg-surface overflow-x-hidden">
 
-    <!-- Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript fallback container) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWBGXLDT"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -667,8 +649,38 @@
         </div>
     </footer>
 
-    <!-- Logic for Form Submission, Modals, Zoom, & Map Facade -->
+    <!-- Logic for Form Submission, Modals, Zoom, Map Facade, & Lazy-Loaded Tracking -->
     <script>
+        // Lazy-load Google Tag Manager & Google Analytics on user interaction or after 3.5s timeout
+        let trackingLoaded = false;
+        function loadTracking() {
+            if (trackingLoaded) return;
+            trackingLoaded = true;
+
+            // Load GTM
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PWBGXLDT');
+
+            // Load GA4 (gtag.js)
+            var gtagScript = document.createElement('script');
+            gtagScript.async = true;
+            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-MDBPM8V2CF';
+            document.head.appendChild(gtagScript);
+
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MDBPM8V2CF');
+        }
+
+        ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'].forEach(function(event) {
+            window.addEventListener(event, loadTracking, { once: true, passive: true });
+        });
+        setTimeout(loadTracking, 3500);
+
         // Check session storage on page load to keep unlocked state persistent
         document.addEventListener("DOMContentLoaded", function() {
             if (sessionStorage.getItem('lead_captured') === 'true') {
