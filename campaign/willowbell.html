@@ -56,42 +56,8 @@
     <!-- Brand Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#DFB558', 
-                        brandHover: '#C89D42', 
-                        primary: '#204633', 
-                        surface: '#F8FAFC'
-                    },
-                    fontFamily: {
-                        display: ['Montserrat', 'sans-serif'],
-                        body: ['Open Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        .hero-img-anim { animation: subtleZoom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; transform: scale(1.05); }
-        @keyframes subtleZoom { to { transform: scale(1); } }
-        
-        .fade-in-up { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(25px); }
-        .delay-100 { animation-delay: 150ms; }
-        .delay-200 { animation-delay: 300ms; }
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        .blur-gate { filter: blur(12px) grayscale(50%); pointer-events: none; transition: filter 0.5s ease; }
-        .hidden-state { display: none !important; }
-    </style>
+    <!-- Local Optimized Static Stylesheet (Replaces Render-Blocking Tailwind CDN) -->
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="font-body text-gray-800 antialiased bg-surface overflow-x-hidden">
 
