@@ -651,7 +651,7 @@
 
     <!-- Logic for Form Submission, Modals, Zoom, Map Facade, & Lazy-Loaded Tracking -->
     <script>
-        // Lazy-load Google Tag Manager & Google Analytics on user interaction or after 3.5s timeout
+        // Lazy-load Google Tag Manager & Google Analytics on user interaction or after 5.0s timeout
         let trackingLoaded = false;
         function loadTracking() {
             if (trackingLoaded) return;
@@ -679,7 +679,7 @@
         ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'].forEach(function(event) {
             window.addEventListener(event, loadTracking, { once: true, passive: true });
         });
-        setTimeout(loadTracking, 3500);
+        setTimeout(loadTracking, 5000);
 
         // Check session storage on page load to keep unlocked state persistent
         document.addEventListener("DOMContentLoaded", function() {
