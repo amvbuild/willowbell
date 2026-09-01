@@ -121,6 +121,7 @@
         <div class="summary-row"><span class="summary-label">Allocated Unit Number</span><span class="summary-value" id="display_unit">Loading...</span></div>
         <div class="summary-row"><span class="summary-label">Unit Type</span><span class="summary-value" id="display_type">Loading...</span></div>
         <div class="summary-row"><span class="summary-label">Floor Level</span><span class="summary-value" id="display_floor">Loading...</span></div>
+        <div class="summary-row"><span class="summary-label">Parking Slot</span><span class="summary-value" id="display_parking">Loading...</span></div>
       </div>
       <input type="hidden" name="allocated_unit_no" id="hidden_unit">
       <input type="hidden" name="unit_type" id="hidden_type">
@@ -232,26 +233,26 @@
             <h3>Applicant 2 (Co-Applicant)</h3>
             <button type="button" class="remove-coapp-btn" onclick="removeCoApp(2)">Remove</button>
           </div>
-          <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="applicant_2_name"></div>
+          <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="applicant_2_name" disabled></div>
           <div class="form-row">
-            <div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="applicant_2_relation"></div>
-            <div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="applicant_2_relationship"></div>
+            <div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="applicant_2_relation" disabled></div>
+            <div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="applicant_2_relationship" disabled></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Mobile Number <span class="required">*</span></label><input type="tel" name="applicant_2_mobile"></div>
-            <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" name="applicant_2_dob"></div>
+            <div class="form-group"><label>Mobile Number <span class="required">*</span></label><input type="tel" name="applicant_2_mobile" disabled></div>
+            <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" name="applicant_2_dob" disabled></div>
           </div>
-          <div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="applicant_2_email"></div>
+          <div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="applicant_2_email" disabled></div>
           <div class="form-row">
-            <div class="form-group id-block"><label>PAN Number <span class="required">*</span></label><input type="text" name="applicant_2_pan_number" maxlength="10" oninput="this.value = this.value.toUpperCase();"><label style="margin-top: 1.5rem;">Upload PAN Card <span class="required">*</span></label><input type="file" name="applicant_2_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)"></div>
-            <div class="form-group id-block"><label>Aadhaar / Passport <span class="required">*</span></label><input type="text" name="applicant_2_aadhaar_number" oninput="this.value = this.value.toUpperCase();"><label style="margin-top: 1.5rem;">Upload Document <span class="required">*</span></label><input type="file" name="applicant_2_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)"></div>
+            <div class="form-group id-block"><label>PAN Number <span class="required">*</span></label><input type="text" name="applicant_2_pan_number" maxlength="10" oninput="this.value = this.value.toUpperCase();" disabled><label style="margin-top: 1.5rem;">Upload PAN Card <span class="required">*</span></label><input type="file" name="applicant_2_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" disabled></div>
+            <div class="form-group id-block"><label>Aadhaar / Passport <span class="required">*</span></label><input type="text" name="applicant_2_aadhaar_number" oninput="this.value = this.value.toUpperCase();" disabled><label style="margin-top: 1.5rem;">Upload Document <span class="required">*</span></label><input type="file" name="applicant_2_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" disabled></div>
           </div>
           <div class="address-block">
-            <div class="address-title">Permanent Address <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_app2" onchange="syncAddress('applicant_2_', this.checked)"> Same as Applicant 1</label></div>
-            <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="applicant_2_address_line_1"></div>
-            <div class="form-group"><label>Address Line 2</label><input type="text" name="applicant_2_address_line_2"></div>
-            <div class="form-row"><div class="form-group"><label>City / Town <span class="required">*</span></label><input type="text" name="applicant_2_city"></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="applicant_2_state"></div></div>
-            <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="applicant_2_pincode"></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="applicant_2_country" value="India"></div></div>
+            <div class="address-title">Permanent Address <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_app2" onchange="syncAddress('applicant_2_', this.checked)" disabled> Same as Applicant 1</label></div>
+            <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="applicant_2_address_line_1" disabled></div>
+            <div class="form-group"><label>Address Line 2</label><input type="text" name="applicant_2_address_line_2" disabled></div>
+            <div class="form-row"><div class="form-group"><label>City / Town <span class="required">*</span></label><input type="text" name="applicant_2_city" disabled></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="applicant_2_state" disabled></div></div>
+            <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="applicant_2_pincode" disabled></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="applicant_2_country" disabled></div></div>
           </div>
         </div>
 
@@ -261,26 +262,26 @@
             <h3>Applicant 3 (Co-Applicant)</h3>
             <button type="button" class="remove-coapp-btn" onclick="removeCoApp(3)">Remove</button>
           </div>
-          <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="applicant_3_name"></div>
+          <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="applicant_3_name" disabled></div>
           <div class="form-row">
-            <div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="applicant_3_relation"></div>
-            <div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="applicant_3_relationship"></div>
+            <div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="applicant_3_relation" disabled></div>
+            <div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="applicant_3_relationship" disabled></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Mobile Number <span class="required">*</span></label><input type="tel" name="applicant_3_mobile"></div>
-            <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" name="applicant_3_dob"></div>
+            <div class="form-group"><label>Mobile Number <span class="required">*</span></label><input type="tel" name="applicant_3_mobile" disabled></div>
+            <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" name="applicant_3_dob" disabled></div>
           </div>
-          <div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="applicant_3_email"></div>
+          <div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="applicant_3_email" disabled></div>
           <div class="form-row">
-            <div class="form-group id-block"><label>PAN Number <span class="required">*</span></label><input type="text" name="applicant_3_pan_number" maxlength="10" oninput="this.value = this.value.toUpperCase();"><label style="margin-top: 1.5rem;">Upload PAN Card <span class="required">*</span></label><input type="file" name="applicant_3_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)"></div>
-            <div class="form-group id-block"><label>Aadhaar / Passport <span class="required">*</span></label><input type="text" name="applicant_3_aadhaar_number" oninput="this.value = this.value.toUpperCase();"><label style="margin-top: 1.5rem;">Upload Document <span class="required">*</span></label><input type="file" name="applicant_3_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)"></div>
+            <div class="form-group id-block"><label>PAN Number <span class="required">*</span></label><input type="text" name="applicant_3_pan_number" maxlength="10" oninput="this.value = this.value.toUpperCase();" disabled><label style="margin-top: 1.5rem;">Upload PAN Card <span class="required">*</span></label><input type="file" name="applicant_3_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" disabled></div>
+            <div class="form-group id-block"><label>Aadhaar / Passport <span class="required">*</span></label><input type="text" name="applicant_3_aadhaar_number" oninput="this.value = this.value.toUpperCase();" disabled><label style="margin-top: 1.5rem;">Upload Document <span class="required">*</span></label><input type="file" name="applicant_3_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" disabled></div>
           </div>
           <div class="address-block">
-            <div class="address-title">Permanent Address <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_app3" onchange="syncAddress('applicant_3_', this.checked)"> Same as Applicant 1</label></div>
-            <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="applicant_3_address_line_1"></div>
-            <div class="form-group"><label>Address Line 2</label><input type="text" name="applicant_3_address_line_2"></div>
-            <div class="form-row"><div class="form-group"><label>City / Town <span class="required">*</span></label><input type="text" name="applicant_3_city"></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="applicant_3_state"></div></div>
-            <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="applicant_3_pincode"></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="applicant_3_country" value="India"></div></div>
+            <div class="address-title">Permanent Address <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_app3" onchange="syncAddress('applicant_3_', this.checked)" disabled> Same as Applicant 1</label></div>
+            <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="applicant_3_address_line_1" disabled></div>
+            <div class="form-group"><label>Address Line 2</label><input type="text" name="applicant_3_address_line_2" disabled></div>
+            <div class="form-row"><div class="form-group"><label>City / Town <span class="required">*</span></label><input type="text" name="applicant_3_city" disabled></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="applicant_3_state" disabled></div></div>
+            <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="applicant_3_pincode" disabled></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="applicant_3_country" disabled></div></div>
           </div>
         </div>
 
@@ -290,26 +291,26 @@
             <h3>Applicant 4 (Co-Applicant)</h3>
             <button type="button" class="remove-coapp-btn" onclick="removeCoApp(4)">Remove</button>
           </div>
-          <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="applicant_4_name"></div>
+          <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="applicant_4_name" disabled></div>
           <div class="form-row">
-            <div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="applicant_4_relation"></div>
-            <div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="applicant_4_relationship"></div>
+            <div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="applicant_4_relation" disabled></div>
+            <div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="applicant_4_relationship" disabled></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Mobile Number <span class="required">*</span></label><input type="tel" name="applicant_4_mobile"></div>
-            <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" name="applicant_4_dob"></div>
+            <div class="form-group"><label>Mobile Number <span class="required">*</span></label><input type="tel" name="applicant_4_mobile" disabled></div>
+            <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" name="applicant_4_dob" disabled></div>
           </div>
-          <div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="applicant_4_email"></div>
+          <div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="applicant_4_email" disabled></div>
           <div class="form-row">
-            <div class="form-group id-block"><label>PAN Number <span class="required">*</span></label><input type="text" name="applicant_4_pan_number" maxlength="10" oninput="this.value = this.value.toUpperCase();"><label style="margin-top: 1.5rem;">Upload PAN Card <span class="required">*</span></label><input type="file" name="applicant_4_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)"></div>
-            <div class="form-group id-block"><label>Aadhaar / Passport <span class="required">*</span></label><input type="text" name="applicant_4_aadhaar_number" oninput="this.value = this.value.toUpperCase();"><label style="margin-top: 1.5rem;">Upload Document <span class="required">*</span></label><input type="file" name="applicant_4_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)"></div>
+            <div class="form-group id-block"><label>PAN Number <span class="required">*</span></label><input type="text" name="applicant_4_pan_number" maxlength="10" oninput="this.value = this.value.toUpperCase();" disabled><label style="margin-top: 1.5rem;">Upload PAN Card <span class="required">*</span></label><input type="file" name="applicant_4_pan_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" disabled></div>
+            <div class="form-group id-block"><label>Aadhaar / Passport <span class="required">*</span></label><input type="text" name="applicant_4_aadhaar_number" oninput="this.value = this.value.toUpperCase();" disabled><label style="margin-top: 1.5rem;">Upload Document <span class="required">*</span></label><input type="file" name="applicant_4_id_proof" accept=".pdf,image/*" onchange="checkFileSize(this)" disabled></div>
           </div>
           <div class="address-block">
-            <div class="address-title">Permanent Address <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_app4" onchange="syncAddress('applicant_4_', this.checked)"> Same as Applicant 1</label></div>
-            <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="applicant_4_address_line_1"></div>
-            <div class="form-group"><label>Address Line 2</label><input type="text" name="applicant_4_address_line_2"></div>
-            <div class="form-row"><div class="form-group"><label>City / Town <span class="required">*</span></label><input type="text" name="applicant_4_city"></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="applicant_4_state"></div></div>
-            <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="applicant_4_pincode"></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="applicant_4_country" value="India"></div></div>
+            <div class="address-title">Permanent Address <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_app4" onchange="syncAddress('applicant_4_', this.checked)" disabled> Same as Applicant 1</label></div>
+            <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="applicant_4_address_line_1" disabled></div>
+            <div class="form-group"><label>Address Line 2</label><input type="text" name="applicant_4_address_line_2" disabled></div>
+            <div class="form-row"><div class="form-group"><label>City / Town <span class="required">*</span></label><input type="text" name="applicant_4_city" disabled></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="applicant_4_state" disabled></div></div>
+            <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="applicant_4_pincode" disabled></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="applicant_4_country" disabled></div></div>
           </div>
         </div>
 
@@ -334,16 +335,16 @@
       </div>
 
       <div id="nomineeBlock" class="conditional-content">
-        <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="nominee_name"></div>
-        <div class="form-row"><div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="nominee_relation"></div><div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="nominee_relationship"></div></div>
-        <div class="form-row"><div class="form-group"><label>Mobile Number <span class="required">*</span></label><input type="tel" name="nominee_mobile"></div><div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="nominee_email"></div></div>
+        <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="nominee_name" disabled></div>
+        <div class="form-row"><div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="nominee_relation" disabled></div><div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="nominee_relationship" disabled></div></div>
+        <div class="form-row"><div class="form-group"><label>Mobile Number <span class="required">*</span></label><input type="tel" name="nominee_mobile" disabled></div><div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" name="nominee_email" disabled></div></div>
 
         <div class="address-block">
-          <div class="address-title">Permanent Address <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_nominee" onchange="syncAddress('nominee_', this.checked)"> Same as Applicant 1</label></div>
-          <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="nominee_address_line_1"></div>
-          <div class="form-group"><label>Address Line 2</label><input type="text" name="nominee_address_line_2"></div>
-          <div class="form-row"><div class="form-group"><label>City <span class="required">*</span></label><input type="text" name="nominee_city"></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="nominee_state"></div></div>
-          <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="nominee_pincode"></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="nominee_country" value="India"></div></div>
+          <div class="address-title">Permanent Address <label class="sync-checkbox"><input type="checkbox" id="sameAsApp1_nominee" onchange="syncAddress('nominee_', this.checked)" disabled> Same as Applicant 1</label></div>
+          <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="nominee_address_line_1" disabled></div>
+          <div class="form-group"><label>Address Line 2</label><input type="text" name="nominee_address_line_2" disabled></div>
+          <div class="form-row"><div class="form-group"><label>City <span class="required">*</span></label><input type="text" name="nominee_city" disabled></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="nominee_state" disabled></div></div>
+          <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="nominee_pincode" disabled></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="nominee_country" disabled></div></div>
         </div>
       </div>
 
@@ -365,18 +366,18 @@
       </div>
 
       <div id="gpaBlock" class="conditional-content">
-        <div class="form-row"><div class="form-group" style="flex: 2;"><label>GPA Holder Name <span class="required">*</span></label><input type="text" name="gpa_name"></div><div class="form-group" style="flex: 1;"><label>Date of Birth <span class="required">*</span></label><input type="date" name="gpa_dob"></div></div>
-        <div class="form-row"><div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="gpa_relation"></div><div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="gpa_relationship"></div></div>
-        <div class="form-row"><div class="form-group"><label>Mobile <span class="required">*</span></label><input type="tel" name="gpa_mobile"></div><div class="form-group"><label>Email <span class="required">*</span></label><input type="email" name="gpa_email"></div></div>
+        <div class="form-row"><div class="form-group" style="flex: 2;"><label>GPA Holder Name <span class="required">*</span></label><input type="text" name="gpa_name" disabled></div><div class="form-group" style="flex: 1;"><label>Date of Birth <span class="required">*</span></label><input type="date" name="gpa_dob" disabled></div></div>
+        <div class="form-row"><div class="form-group"><label>Relative's Name <span class="required">*</span></label><input type="text" name="gpa_relation" disabled></div><div class="form-group"><label>Relationship <span class="required">*</span></label><input type="text" name="gpa_relationship" disabled></div></div>
+        <div class="form-row"><div class="form-group"><label>Mobile <span class="required">*</span></label><input type="tel" name="gpa_mobile" disabled></div><div class="form-group"><label>Email <span class="required">*</span></label><input type="email" name="gpa_email" disabled></div></div>
 
         <div class="address-block">
           <div class="address-title">Permanent Address (As per document)</div>
-          <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="gpa_address_line_1"></div>
-          <div class="form-group"><label>Address Line 2</label><input type="text" name="gpa_address_line_2"></div>
-          <div class="form-row"><div class="form-group"><label>City <span class="required">*</span></label><input type="text" name="gpa_city"></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="gpa_state"></div></div>
-          <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="gpa_pincode"></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="gpa_country" value="India"></div></div>
+          <div class="form-group"><label>Address Line 1 <span class="required">*</span></label><input type="text" name="gpa_address_line_1" disabled></div>
+          <div class="form-group"><label>Address Line 2</label><input type="text" name="gpa_address_line_2" disabled></div>
+          <div class="form-row"><div class="form-group"><label>City <span class="required">*</span></label><input type="text" name="gpa_city" disabled></div><div class="form-group"><label>State <span class="required">*</span></label><input type="text" name="gpa_state" disabled></div></div>
+          <div class="form-row"><div class="form-group"><label>PIN <span class="required">*</span></label><input type="text" name="gpa_pincode" disabled></div><div class="form-group"><label>Country <span class="required">*</span></label><input type="text" name="gpa_country" disabled></div></div>
         </div>
-        <div class="form-group"><label>Upload Registered GPA Document <span class="required">*</span></label><input type="file" name="gpa_document" accept=".pdf,image/*" onchange="checkFileSize(this)"><div class="file-hint">Max 10 MB.</div></div>
+        <div class="form-group"><label>Upload Registered GPA Document <span class="required">*</span></label><input type="file" name="gpa_document" accept=".pdf,image/*" onchange="checkFileSize(this)" disabled><div class="file-hint">Max 10 MB.</div></div>
       </div>
 
       <div class="btn-container">
@@ -401,6 +402,7 @@
     const name = urlParams.get('name');
     const phone = urlParams.get('phone');
     const lead = urlParams.get('lead');
+    const parking = urlParams.get('parking');
 
     // THE FAILSAFE TRIGGER - Blocks access if the URL is naked
     if (!unit && !lead) {
@@ -414,6 +416,17 @@
     if(type) { document.getElementById('display_type').innerText = type; document.getElementById('hidden_type').value = type; }
     if(floor) { document.getElementById('display_floor').innerText = floor; document.getElementById('hidden_floor').value = floor; }
     
+    // NEW PARKING LOGIC
+    const parkingDisplay = document.getElementById('display_parking');
+    if (parking && parking.trim() !== "") {
+      parkingDisplay.innerText = parking;
+    } else {
+      parkingDisplay.innerText = "Not Selected - You can select this later";
+      parkingDisplay.style.fontSize = "0.85rem";
+      parkingDisplay.style.color = "#718096";
+      parkingDisplay.style.fontWeight = "600";
+    }
+
     const nameField = document.querySelector('input[name="applicant_1_name"]');
     if (nameField && name) nameField.value = name;
     const phoneField = document.querySelector('input[name="applicant_1_mobile"]');
@@ -470,11 +483,16 @@
     const block = document.getElementById(`app${num}Block`);
     block.style.display = 'block';
     
-    // Require inputs
+    // Require inputs and dynamically inject "India" for country
     block.querySelectorAll('input:not([type="checkbox"])').forEach(inp => {
       if (!inp.name.includes('line_2')) inp.setAttribute('required', 'true');
       inp.removeAttribute('disabled');
+      if (inp.name.includes('_country') && !inp.value) inp.value = 'India'; 
     });
+    
+    // Enable checkbox as well
+    const syncCheck = block.querySelector('input[type="checkbox"]');
+    if(syncCheck) syncCheck.removeAttribute('disabled');
 
     if (activeCoApps >= 3) document.getElementById('addCoAppBtn').style.display = 'none';
   }
@@ -503,6 +521,7 @@
     const el = document.getElementById(id), input = document.getElementById('loanExtent');
     if(show) { el.style.display = 'block'; input.setAttribute('required', 'true'); } else { el.style.display = 'none'; input.removeAttribute('required'); input.value = ''; }
   }
+  
   function toggleRequiredBlock(blockId, isRequired) {
     const block = document.getElementById(blockId); block.style.display = isRequired ? 'block' : 'none';
     const inputs = block.querySelectorAll('input:not([type="checkbox"])');
@@ -510,13 +529,19 @@
       if (isRequired) {
         if (!inp.name.includes('line_2')) inp.setAttribute('required', 'true');
         inp.removeAttribute('disabled');
+        // Programmatically add "India" only when enabled
+        if (inp.name.includes('_country') && !inp.value) inp.value = 'India';
       } else {
         inp.removeAttribute('required');
         inp.setAttribute('disabled', 'true'); 
         inp.value = ''; 
       }
     });
+    
+    const checkboxes = block.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(cb => isRequired ? cb.removeAttribute('disabled') : cb.setAttribute('disabled', 'true'));
   }
+  
   function checkFileSize(input) { if (input.files && input.files[0] && input.files[0].size > 10 * 1024 * 1024) { alert("File size exceeds 10 MB. Please choose a smaller file."); input.value = ""; } }
 
   // ADDRESS SYNC LOGIC (Scales to 4 Apps + Nominee)
