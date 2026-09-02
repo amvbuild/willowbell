@@ -130,6 +130,7 @@
                 </div>
                 <div>
                     <input type="tel" id="modal-phone" required autocomplete="tel" inputmode="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50" placeholder="Phone Number (+91)">
+                    <p id="modal-phone-error" class="text-red-500 text-xs mt-1 hidden-state">Please enter a valid 10-digit mobile number.</p>
                 </div>
                 <button type="submit" id="modal-submit-btn" class="w-full bg-brand hover:bg-brandHover text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-lg cursor-pointer">
                     Unlock Now
@@ -184,6 +185,7 @@
                         </div>
                         <div>
                             <input type="tel" id="lead-phone" required autocomplete="tel" inputmode="tel" class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white" placeholder="Phone Number (+91)">
+                            <p id="phone-error" class="text-red-500 text-xs mt-1 hidden-state">Please enter a valid 10-digit mobile number.</p>
                         </div>
                         
                         <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-green-900 text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-xl shadow-primary/30 mt-2 cursor-pointer">
@@ -778,15 +780,31 @@
         function handleLeadSubmission(e, formType) {
             e.preventDefault();
             
-            let nameInput, phoneInput;
+            let nameInput, phoneInput, errorElement;
             
             if(formType === 'hero') {
                 nameInput = document.getElementById('lead-name');
                 phoneInput = document.getElementById('lead-phone');
+                errorElement = document.getElementById('phone-error');
             } else if(formType === 'modal') {
                 nameInput = document.getElementById('modal-name');
                 phoneInput = document.getElementById('modal-phone');
+                errorElement = document.getElementById('modal-phone-error');
             }
+
+            // INDIAN MOBILE NUMBER REGEX VALIDATION
+            const phoneRegex = /^(?:(?:\+|0{0,2})91[\s-]?)?[6-9]\d{9}$/;
+            const cleanPhone = phoneInput.value.trim();
+
+            if (!phoneRegex.test(cleanPhone)) {
+                if(errorElement) errorElement.classList.remove('hidden-state');
+                phoneInput.focus();
+                phoneInput.classList.add('border-red-500');
+                return; // STOP: Invalid phone number format
+            }
+
+            if(errorElement) errorElement.classList.add('hidden-state');
+            phoneInput.classList.remove('border-red-500');
 
             sessionStorage.setItem('lead_captured', 'true');
             sessionStorage.setItem('user_name', nameInput.value);
@@ -799,7 +817,7 @@
 
             const payload = {
                 name: nameInput.value,
-                whatsapp: phoneInput.value,
+                whatsapp: cleanPhone,
                 email: "",
                 requirement: "0 BHK",
                 source: "Online Ads",
