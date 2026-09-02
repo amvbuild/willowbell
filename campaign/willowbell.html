@@ -131,7 +131,7 @@
                 <div>
                     <input type="tel" id="modal-phone" required autocomplete="tel" inputmode="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50" placeholder="Phone Number (+91)">
                 </div>
-                <button type="submit" id="modal-submit-btn" class="w-full bg-brand hover:bg-brandHover text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-lg">
+                <button type="submit" id="modal-submit-btn" class="w-full bg-brand hover:bg-brandHover text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-lg cursor-pointer">
                     Unlock Now
                 </button>
             </form>
@@ -141,7 +141,7 @@
     <!-- Image Zoom Lightbox Modal -->
     <div id="zoom-modal" class="fixed inset-0 z-[110] hidden flex items-center justify-center bg-black/80 backdrop-blur-md px-4" onclick="closeZoomModal()">
         <div class="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center p-2" onclick="event.stopPropagation()">
-            <button onclick="closeZoomModal()" class="absolute -top-12 right-0 text-white hover:text-brand bg-black/50 p-2 rounded-full">
+            <button onclick="closeZoomModal()" class="absolute -top-12 right-0 text-white hover:text-brand bg-black/50 p-2 rounded-full cursor-pointer">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <img id="zoomed-img" src="" alt="Zoomed Plan" class="max-h-[85vh] max-w-full object-contain rounded-xl shadow-2xl bg-white p-2">
@@ -186,7 +186,7 @@
                             <input type="tel" id="lead-phone" required autocomplete="tel" inputmode="tel" class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white" placeholder="Phone Number (+91)">
                         </div>
                         
-                        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-green-900 text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-xl shadow-primary/30 mt-2">
+                        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-green-900 text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-xl shadow-primary/30 mt-2 cursor-pointer">
                             Get Offer
                         </button>
                         
@@ -438,10 +438,10 @@
                 <p class="text-gray-300">Explore the meticulously designed interiors and amenities.</p>
             </div>
             <div class="hidden md:flex space-x-3">
-                <button onclick="scrollGallery(-1)" class="w-12 h-12 rounded-full bg-white/10 hover:bg-brand text-white flex items-center justify-center transition duration-300">
+                <button onclick="scrollGallery(-1)" class="w-12 h-12 rounded-full bg-white/10 hover:bg-brand text-white flex items-center justify-center transition duration-300 cursor-pointer">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button onclick="scrollGallery(1)" class="w-12 h-12 rounded-full bg-white/10 hover:bg-brand text-white flex items-center justify-center transition duration-300">
+                <button onclick="scrollGallery(1)" class="w-12 h-12 rounded-full bg-white/10 hover:bg-brand text-white flex items-center justify-center transition duration-300 cursor-pointer">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
@@ -619,7 +619,7 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-center md:text-left">
             
             <div>
-                <img src="assets/CW-Logo-2.webp" alt="Classique Willowbell" class="h-10 mb-4 mx-auto md:mx-0 object-contain">
+                <img src="assets/CW-Logo-2.webp" alt="Classique Willowbell" width="160" height="40" class="h-10 mb-4 mx-auto md:mx-0 object-contain">
                 <p class="mb-5 text-gray-300">2, 3 & 4 BHK Premium Homes at Hennur Road, Bengaluru.<br/>
                 RERA PRM/KA/RERA/1251/446/PR/220526/008672.</p>
                 
@@ -791,14 +791,20 @@
             sessionStorage.setItem('lead_captured', 'true');
             sessionStorage.setItem('user_name', nameInput.value);
 
+            // Dynamic Sub-source routing check for ChatGPT Ads vs Google Ads
+            const urlParams = new URLSearchParams(window.location.search);
+            const isChatGPT = urlParams.get('utm_source') === 'chatgpt' || urlParams.has('oppref');
+            const activeSubSource = isChatGPT ? "ChatGPTAds" : "GoogleAds";
+            const sourceDetailsText = isChatGPT ? "ChatGPT Ads LP RuffleHub" : "Google Ads LP RuffleHub";
+
             const payload = {
                 name: nameInput.value,
                 whatsapp: phoneInput.value,
                 email: "",
                 requirement: "0 BHK",
                 source: "Online Ads",
-                subSource: "GoogleAds",
-                sourceDetails: "Google Ads LP RuffleHub",
+                subSource: activeSubSource,
+                sourceDetails: sourceDetailsText,
                 timeline: "Exploring"
             };
 
@@ -817,8 +823,8 @@
             document.getElementById('lead-capture-container').classList.add('hidden-state');
             document.getElementById('thank-you-container').classList.remove('hidden-state');
 
-            // FIRE CHATGPT ADS CONVERSION PIXEL EVENT
-            if (window.oaiq) {
+            // FIRE CHATGPT ADS CONVERSION PIXEL EVENT IF FROM CHATGPT ADS
+            if (isChatGPT && window.oaiq) {
                 oaiq("measure", "lead_created", {
                     type: "customer_action"
                 });
