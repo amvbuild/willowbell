@@ -8,6 +8,9 @@
     <!-- SEO Meta Description -->
     <meta name="description" content="Explore Classique Willowbell luxury 2, 3 & 4 BHK boutique homes on Hennur Main Road, Bengaluru starting at ₹1.25 Cr*. Discover master plans and launch offers.">
     
+    <!-- Canonical Tag for SEO Protection -->
+    <link rel="canonical" href="https://willowbell.amvbuild.in/" />
+    
     <!-- Speed & Network Pre-warming -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +22,7 @@
     <!-- Open Graph / WhatsApp / Facebook / LinkedIn Meta Tags -->
     <meta property="og:title" content="Classique Willowbell | AMV - Luxury Residences">
     <meta property="og:description" content="Exclusive 2, 3 & 4 BHK boutique homes starting at ₹1.25 Cr* on Hennur Main Road. Explore master plans and launch offers.">
-    <meta property="og:image" content="assets/Classique-Willowbell.webp">
+    <meta property="og:image" content="https://willowbell.amvbuild.in/campaign/assets/Classique-Willowbell.webp">
     <meta property="og:url" content="https://willowbell.amvbuild.in">
     <meta property="og:type" content="website">
 
@@ -27,9 +30,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Classique Willowbell | AMV">
     <meta name="twitter:description" content="Exclusive Residences Starting At ₹1.25 Cr* at Hennur Main Road, Bengaluru.">
-    <meta name="twitter:image" content="assets/Classique-Willowbell.webp">
+    <meta name="twitter:image" content="https://willowbell.amvbuild.in/campaign/assets/Classique-Willowbell.webp">
     
-    <!-- Favicons & App Icons -->
+    <!-- Favicons & App Icons (Loading raw from GitHub) -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon.svg">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon.ico">
@@ -108,7 +111,7 @@
             </nav>
             
             <a href="#" class="flex-shrink-0">
-                <img src="assets/amv-logo.webp" alt="AMV" width="176" height="56" fetchpriority="high" decoding="async" class="h-8 md:h-12 object-contain mix-blend-multiply">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/amv-logo.webp" alt="AMV" width="176" height="56" fetchpriority="high" decoding="async" class="h-8 md:h-12 object-contain mix-blend-multiply">
             </a>
             
         </div>
@@ -152,15 +155,15 @@
     <!-- Hero Section -->
     <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden">
         <div class="absolute inset-0 z-0 overflow-hidden">
-            <img src="assets/Classique-Willowbell.webp" alt="Classique Willowbell" loading="eager" fetchpriority="high" decoding="sync" class="w-full h-full object-cover object-center hero-img-anim block md:hidden">
-            <img src="assets/Cam_Balcony.webp" alt="Classique Willowbell Balcony" loading="eager" fetchpriority="high" decoding="sync" class="w-full h-full object-cover object-center hero-img-anim hidden md:block">
+            <img src="https://willowbell.amvbuild.in/campaign/assets/Classique-Willowbell.webp" alt="Classique Willowbell" loading="eager" fetchpriority="high" decoding="sync" class="w-full h-full object-cover object-center hero-img-anim block md:hidden">
+            <img src="https://willowbell.amvbuild.in/campaign/assets/Cam_Balcony.webp" alt="Classique Willowbell Balcony" loading="eager" fetchpriority="high" decoding="sync" class="w-full h-full object-cover object-center hero-img-anim hidden md:block">
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20 lg:to-transparent"></div>
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             
             <div class="fade-in-up delay-100 text-center lg:text-left">
-                <img src="assets/CW-Logo-2.webp" alt="Classique Willowbell" width="192" height="112" class="h-16 md:h-24 mb-6 mx-auto lg:mx-0 object-contain drop-shadow-xl">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/CW-Logo-2.webp" alt="Classique Willowbell" width="192" height="112" class="h-16 md:h-24 mb-6 mx-auto lg:mx-0 object-contain drop-shadow-xl">
                 
                 <h1 class="font-display font-extrabold text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 drop-shadow-lg text-center lg:text-left">
                     Quietly Confident <br/><span class="text-brand">Luxury.</span>
@@ -287,38 +290,38 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
-                <!-- Pricing Breakdown Cards -->
+                <!-- Pricing Breakdown Cards (Clickable) -->
                 <div class="lg:col-span-5 space-y-4 fade-in-up">
-                    <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
+                    <div onclick="switchPlanTab('2bhk'); scrollToPlans();" class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand hover:shadow-md transition cursor-pointer group">
                         <div>
-                            <h3 class="font-display font-bold text-lg md:text-xl text-primary">2 BHK</h3>
+                            <h3 class="font-display font-bold text-lg md:text-xl text-primary group-hover:text-brand transition">2 BHK</h3>
                             <p class="text-xs md:text-sm text-gray-600 mt-0.5">1,330 sq. ft.</p>
                         </div>
                         <div class="text-right">
                             <p class="text-[10px] md:text-xs text-gray-600">Starting From</p>
-                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹1.25 <span class="text-xs md:text-sm">Cr*</span></p>
+                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap group-hover:text-brand transition">₹1.25 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
+                    <div onclick="switchPlanTab('3bhk'); scrollToPlans();" class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand hover:shadow-md transition cursor-pointer group">
                         <div>
-                            <h3 class="font-display font-bold text-lg md:text-xl text-primary">3 BHK</h3>
+                            <h3 class="font-display font-bold text-lg md:text-xl text-primary group-hover:text-brand transition">3 BHK</h3>
                             <p class="text-xs md:text-sm text-gray-600 mt-0.5">1,900 sq. ft.</p>
                         </div>
                         <div class="text-right">
                             <p class="text-[10px] md:text-xs text-gray-600">Starting From</p>
-                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹1.60 <span class="text-xs md:text-sm">Cr*</span></p>
+                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap group-hover:text-brand transition">₹1.60 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand transition">
+                    <div onclick="switchPlanTab('4bhk'); scrollToPlans();" class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand hover:shadow-md transition cursor-pointer group">
                         <div>
-                            <h3 class="font-display font-bold text-lg md:text-xl text-primary">4 BHK</h3>
+                            <h3 class="font-display font-bold text-lg md:text-xl text-primary group-hover:text-brand transition">4 BHK</h3>
                             <p class="text-xs md:text-sm text-gray-600 mt-0.5">2,700 sq. ft.</p>
                         </div>
                         <div class="text-right">
                             <p class="text-[10px] md:text-xs text-gray-600">Starting From</p>
-                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap">₹2.40 <span class="text-xs md:text-sm">Cr*</span></p>
+                            <p class="font-display font-extrabold text-xl md:text-2xl text-primary whitespace-nowrap group-hover:text-brand transition">₹2.40 <span class="text-xs md:text-sm">Cr*</span></p>
                         </div>
                     </div>
                 </div>
@@ -338,74 +341,74 @@
                             <div id="plan-gate-container" class="relative blur-gate">
                                 
                                 <div id="content-master" class="plan-content text-center">
-                                    <div class="relative group cursor-pointer inline-block w-full" onclick="openZoomImage('assets/willowbell-fp-master.webp')">
-                                        <img src="assets/willowbell-fp-master.webp" alt="Master Plan" loading="lazy" decoding="async" class="w-full h-72 md:h-96 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                    <div class="relative group cursor-pointer inline-block w-full" onclick="openZoomImage('https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-master.webp')">
+                                        <img src="https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-master.webp" alt="Master Plan" loading="lazy" decoding="async" class="w-full h-72 md:h-96 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
                                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
                                             <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
                                         </div>
                                     </div>
                                     <div class="mt-4 text-center">
-                                        <a href="assets/WB-Master-Floor-Plan.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
+                                        <a href="https://willowbell.amvbuild.in/campaign/assets/WB-Master-Floor-Plan.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
                                     </div>
                                 </div>
 
                                 <div id="content-2bhk" class="plan-content hidden-state">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('assets/willowbell-fp-2bhk.webp')">
-                                            <img src="assets/willowbell-fp-2bhk.webp" alt="2 BHK 2D Layout" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-2bhk.webp')">
+                                            <img src="https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-2bhk.webp" alt="2 BHK 2D Layout" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
                                             <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
                                                 <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
                                             </div>
                                         </div>
-                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('assets/willowbell-fp-2bhk-iso.webp')">
-                                            <img src="assets/willowbell-fp-2bhk-iso.webp" alt="2 BHK Isometric 3D" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-2bhk-iso.webp')">
+                                            <img src="https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-2bhk-iso.webp" alt="2 BHK Isometric 3D" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
                                             <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
                                                 <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mt-4 text-center">
-                                        <a href="assets/WB-Flat_Floor_Plans.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
+                                        <a href="https://willowbell.amvbuild.in/campaign/assets/WB-Flat_Floor_Plans.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
                                     </div>
                                 </div>
 
                                 <div id="content-3bhk" class="plan-content hidden-state">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('assets/willowbell-fp-3bhk.webp')">
-                                            <img src="assets/willowbell-fp-3bhk.webp" alt="3 BHK 2D Layout" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-3bhk.webp')">
+                                            <img src="https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-3bhk.webp" alt="3 BHK 2D Layout" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
                                             <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
                                                 <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
                                             </div>
                                         </div>
-                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('assets/willowbell-fp-3bhk-so.webp')">
-                                            <img src="assets/willowbell-fp-3bhk-so.webp" alt="3 BHK Isometric 3D" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-3bhk-so.webp')">
+                                            <img src="https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-3bhk-so.webp" alt="3 BHK Isometric 3D" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
                                             <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
                                                 <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mt-4 text-center">
-                                        <a href="assets/WB-Flat_Floor_Plans.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
+                                        <a href="https://willowbell.amvbuild.in/campaign/assets/WB-Flat_Floor_Plans.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
                                     </div>
                                 </div>
 
                                 <div id="content-4bhk" class="plan-content hidden-state">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('assets/willowbell-fp-4bhk.webp')">
-                                            <img src="assets/willowbell-fp-4bhk.webp" alt="4 BHK 2D Layout" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-4bhk.webp')">
+                                            <img src="https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-4bhk.webp" alt="4 BHK 2D Layout" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
                                             <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
                                                 <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
                                             </div>
                                         </div>
-                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('assets/willowbell-fp-4bhk-iso.webp')">
-                                            <img src="assets/willowbell-fp-4bhk-iso.webp" alt="4 BHK Isometric 3D" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
+                                        <div class="relative group cursor-pointer text-center" onclick="openZoomImage('https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-4bhk-iso.webp')">
+                                            <img src="https://willowbell.amvbuild.in/campaign/assets/willowbell-fp-4bhk-iso.webp" alt="4 BHK Isometric 3D" loading="lazy" decoding="async" class="w-full h-56 md:h-64 object-contain bg-gray-50 rounded-xl p-2 gate-target transition group-hover:scale-[1.01]">
                                             <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-xl">
                                                 <span class="bg-primary/90 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Zoom</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mt-4 text-center">
-                                        <a href="assets/WB-Flat_Floor_Plans.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
+                                        <a href="https://willowbell.amvbuild.in/campaign/assets/WB-Flat_Floor_Plans.pdf" target="_blank" class="text-primary hover:text-brand font-semibold text-xs md:text-sm underline transition">Download</a>
                                     </div>
                                 </div>
 
@@ -451,25 +454,25 @@
         
         <div id="gallery-container" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 px-6 pb-8 max-w-7xl mx-auto cursor-grab active:cursor-grabbing fade-in-up delay-100">
             <div class="snap-start shrink-0 w-[78vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
-                <img src="assets/Classique-Willowbell.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Exterior">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/Classique-Willowbell.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Exterior">
             </div>
             <div class="snap-start shrink-0 w-[78vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
-                <img src="assets/Swimming-Pool-AMV-Build.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Pool">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/Swimming-Pool-AMV-Build.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Pool">
             </div>
             <div class="snap-start shrink-0 w-[78vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
-                <img src="assets/Cam_LobbyMain.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Lobby">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/Cam_LobbyMain.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Lobby">
             </div>
             <div class="snap-start shrink-0 w-[78vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
-                <img src="assets/4BHK_Living_Main.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Living Room">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/4BHK_Living_Main.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Living Room">
             </div>
             <div class="snap-start shrink-0 w-[78vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
-                <img src="assets/4BHK_Bed1.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Master Bedroom">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/4BHK_Bed1.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Master Bedroom">
             </div>
             <div class="snap-start shrink-0 w-[78vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
-                <img src="assets/Cam_Gym.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Gym">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/Cam_Gym.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Gym">
             </div>
             <div class="snap-start shrink-0 w-[78vw] md:w-[45vw] lg:w-[30vw] overflow-hidden rounded-2xl shadow-lg border border-white/10 group">
-                <img src="assets/Cam_Terrace.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Terrace">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/Cam_Terrace.webp" loading="lazy" decoding="async" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Terrace">
             </div>
             <div class="shrink-0 w-2 md:w-0"></div>
         </div>
@@ -510,7 +513,7 @@
                 <!-- Click-to-Load Map Container -->
                 <div class="w-full lg:w-2/3 fade-in-up delay-100">
                     <div id="map-container" class="w-full h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100 relative bg-gray-900 flex flex-col items-center justify-center cursor-pointer group" onclick="loadMap()">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition duration-500" style="background-image: url('assets/Classique-Willowbell.webp');"></div>
+                        <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition duration-500" style="background-image: url('https://willowbell.amvbuild.in/campaign/assets/Classique-Willowbell.webp');"></div>
                         <div class="absolute inset-0 bg-primary/70"></div>
                         <div class="relative z-10 text-center p-6 text-white">
                             <div class="w-14 h-14 bg-brand text-primary rounded-full flex items-center justify-center mx-auto text-2xl mb-3 shadow-lg group-hover:scale-110 transition">
@@ -548,7 +551,7 @@
                     
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
-                            <img src="assets/Classique-Windchimes-Yelahanka-Bangalore.webp" alt="Classique Windchimes" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://willowbell.amvbuild.in/campaign/assets/Classique-Windchimes-Yelahanka-Bangalore.webp" alt="Classique Windchimes" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
@@ -561,7 +564,7 @@
 
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
-                            <img src="assets/Classique-Woodsville.webp" alt="Classique Woodsville" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://willowbell.amvbuild.in/campaign/assets/Classique-Woodsville.webp" alt="Classique Woodsville" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
@@ -574,7 +577,7 @@
 
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
-                            <img src="https://amvbuild.in/wp-content/uploads/2022/10/Classique_Ruby.jpg" alt="Classique Ruby" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://willowbell.amvbuild.in/campaign/assets/Classique_Ruby.webp" alt="Classique Ruby" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
@@ -587,7 +590,7 @@
 
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
-                            <img src="assets/grid-img-pearl.webp" alt="Classique Pearl" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://willowbell.amvbuild.in/campaign/assets/grid-img-pearl.webp" alt="Classique Pearl" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
@@ -600,7 +603,7 @@
 
                     <div class="snap-start shrink-0 w-[78vw] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm flex flex-col group hover:border-brand/40 transition duration-300">
                         <div class="overflow-hidden h-36">
-                            <img src="https://amvbuild.in/wp-content/uploads/2022/10/Classique_Sapphire-amv.jpg" alt="Classique Sapphire" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://willowbell.amvbuild.in/campaign/assets/Classique_Sapphire-amv.webp" alt="Classique Sapphire" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-4 text-center flex-grow flex flex-col justify-between">
                             <div>
@@ -621,7 +624,7 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-center md:text-left">
             
             <div>
-                <img src="assets/CW-Logo-2.webp" alt="Classique Willowbell" width="160" height="40" class="h-10 mb-4 mx-auto md:mx-0 object-contain">
+                <img src="https://willowbell.amvbuild.in/campaign/assets/CW-Logo-2.webp" alt="Classique Willowbell" width="160" height="40" class="h-10 mb-4 mx-auto md:mx-0 object-contain">
                 <p class="mb-5 text-gray-300">2, 3 & 4 BHK Premium Homes at Hennur Road, Bengaluru.<br/>
                 RERA PRM/KA/RERA/1251/446/PR/220526/008672.</p>
                 
