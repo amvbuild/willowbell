@@ -32,7 +32,7 @@
     <meta name="twitter:description" content="Exclusive Residences Starting At ₹1.25 Cr* at Hennur Main Road, Bengaluru.">
     <meta name="twitter:image" content="https://willowbell.amvbuild.in/campaign/assets/Classique-Willowbell.webp">
     
-    <!-- Favicons & App Icons (Loading raw from GitHub) -->
+    <!-- Favicons & App Icons -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon.svg">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/amvbuild/willowbell/main/favicon.ico">
@@ -129,11 +129,26 @@
             
             <form id="modal-form" class="space-y-4">
                 <div>
-                    <input type="text" id="modal-name" required autocomplete="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50" placeholder="Full Name">
+                    <input type="text" id="modal-name" required autocomplete="new-name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50" placeholder="Full Name">
                 </div>
                 <div>
-                    <input type="tel" id="modal-phone" required autocomplete="tel" inputmode="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50" placeholder="Phone Number (+91)">
+                    <input type="text" id="modal-phone" required autocomplete="new-phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50" placeholder="Phone Number (+91)">
                     <p id="modal-phone-error" class="text-red-500 text-xs mt-1 hidden-state">Please enter a valid 10-digit mobile number.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <select id="modal-req" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50 text-gray-600">
+                        <option value="" disabled selected>Requirement</option>
+                        <option value="2 BHK">2 BHK</option>
+                        <option value="3 BHK">3 BHK</option>
+                        <option value="4 BHK">4 BHK</option>
+                        <option value="0 BHK">Not Sure</option>
+                    </select>
+                    <select id="modal-timeline" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-gray-50 text-gray-600">
+                        <option value="" disabled selected>Timeline</option>
+                        <option value="Immediate">Immediate (0-3 mos)</option>
+                        <option value="3-6 months">3-6 months</option>
+                        <option value="Exploring">Just Exploring</option>
+                    </select>
                 </div>
                 <button type="submit" id="modal-submit-btn" class="w-full bg-brand hover:bg-brandHover text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-lg cursor-pointer">
                     Unlock Now
@@ -184,11 +199,26 @@
                     
                     <form id="willowbell-form" class="space-y-4">
                         <div>
-                            <input type="text" id="lead-name" required autocomplete="name" class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white" placeholder="Full Name">
+                            <input type="text" id="lead-name" required autocomplete="new-name" class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white" placeholder="Full Name">
                         </div>
                         <div>
-                            <input type="tel" id="lead-phone" required autocomplete="tel" inputmode="tel" class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white" placeholder="Phone Number (+91)">
+                            <input type="text" id="lead-phone" required autocomplete="new-phone" class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white" placeholder="Phone Number (+91)">
                             <p id="phone-error" class="text-red-500 text-xs mt-1 hidden-state">Please enter a valid 10-digit mobile number.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <select id="lead-req" required class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white text-gray-600">
+                                <option value="" disabled selected>Requirement</option>
+                                <option value="2 BHK">2 BHK</option>
+                                <option value="3 BHK">3 BHK</option>
+                                <option value="4 BHK">4 BHK</option>
+                                <option value="0 BHK">Not Sure</option>
+                            </select>
+                            <select id="lead-timeline" required class="w-full px-4 py-3.5 rounded-lg border border-gray-300 focus:ring-0 focus:border-brand outline-none transition bg-white text-gray-600">
+                                <option value="" disabled selected>Timeline</option>
+                                <option value="Immediate">Immediate (0-3 mos)</option>
+                                <option value="3-6 months">3-6 months</option>
+                                <option value="Exploring">Just Exploring</option>
+                            </select>
                         </div>
                         
                         <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-green-900 text-white font-display font-bold text-lg py-4 rounded-lg transition duration-300 shadow-xl shadow-primary/30 mt-2 cursor-pointer">
@@ -290,7 +320,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
-                <!-- Pricing Breakdown Cards (Clickable) -->
+                <!-- Pricing Breakdown Cards -->
                 <div class="lg:col-span-5 space-y-4 fade-in-up">
                     <div onclick="switchPlanTab('2bhk'); scrollToPlans();" class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center hover:border-brand hover:shadow-md transition cursor-pointer group">
                         <div>
@@ -783,15 +813,19 @@
         function handleLeadSubmission(e, formType) {
             e.preventDefault();
             
-            let nameInput, phoneInput, errorElement;
+            let nameInput, phoneInput, reqInput, timelineInput, errorElement;
             
             if(formType === 'hero') {
                 nameInput = document.getElementById('lead-name');
                 phoneInput = document.getElementById('lead-phone');
+                reqInput = document.getElementById('lead-req');
+                timelineInput = document.getElementById('lead-timeline');
                 errorElement = document.getElementById('phone-error');
             } else if(formType === 'modal') {
                 nameInput = document.getElementById('modal-name');
                 phoneInput = document.getElementById('modal-phone');
+                reqInput = document.getElementById('modal-req');
+                timelineInput = document.getElementById('modal-timeline');
                 errorElement = document.getElementById('modal-phone-error');
             }
 
@@ -816,17 +850,17 @@
             const urlParams = new URLSearchParams(window.location.search);
             const isChatGPT = urlParams.get('utm_source') === 'chatgpt' || urlParams.has('oppref');
             const activeSubSource = isChatGPT ? "ChatGPTAds" : "GoogleAds";
-            const sourceDetailsText = isChatGPT ? "ChatGPT Ads LP RuffleHub" : "Google Ads LP RuffleHub";
+            const sourceDetailsText = isChatGPT ? "ChatGPT Ads LP" : "Google Ads LP";
 
             const payload = {
                 name: nameInput.value,
                 whatsapp: cleanPhone,
                 email: "",
-                requirement: "0 BHK",
+                requirement: reqInput.value,
                 source: "Online Ads",
                 subSource: activeSubSource,
                 sourceDetails: sourceDetailsText,
-                timeline: "Exploring"
+                timeline: timelineInput.value
             };
 
             fetch(WEBHOOK_URL, {
